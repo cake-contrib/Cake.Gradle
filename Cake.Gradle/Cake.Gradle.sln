@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C741C292-CD8A-45EF-95B9-A06EEA843017}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{493CE34D-11B5-44EC-90BB-7123F6D6229D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Gradle.Tests", "..\tests\Cake.Gradle\Cake.Gradle.Tests\Cake.Gradle.Tests.csproj", "{621F72FB-58B8-4811-8AB1-40C87E9F2C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Gradle", "..\src\Cake.Gradle\Cake.Gradle\Cake.Gradle.csproj", "{2113B892-8C6D-4B77-B2B2-D6D476E3E592}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{621F72FB-58B8-4811-8AB1-40C87E9F2C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621F72FB-58B8-4811-8AB1-40C87E9F2C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621F72FB-58B8-4811-8AB1-40C87E9F2C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621F72FB-58B8-4811-8AB1-40C87E9F2C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2113B892-8C6D-4B77-B2B2-D6D476E3E592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2113B892-8C6D-4B77-B2B2-D6D476E3E592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2113B892-8C6D-4B77-B2B2-D6D476E3E592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2113B892-8C6D-4B77-B2B2-D6D476E3E592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{621F72FB-58B8-4811-8AB1-40C87E9F2C36} = {493CE34D-11B5-44EC-90BB-7123F6D6229D}
+		{2113B892-8C6D-4B77-B2B2-D6D476E3E592} = {C741C292-CD8A-45EF-95B9-A06EEA843017}
+	EndGlobalSection
+EndGlobal
