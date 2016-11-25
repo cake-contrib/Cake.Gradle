@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cake.Gradle")]
+[assembly: AssemblyTitle("Cake.Gradle.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zuehlke Engineering")]
-[assembly: AssemblyProduct("Cake.Gradle")]
+[assembly: AssemblyProduct("Cake.Gradle.Tests")]
 [assembly: AssemblyCopyright("Copyright © Zuehlke Engineering 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2113b892-8c6d-4b77-b2b2-d6d476e3e592")]
+[assembly: Guid("3a57f26f-9cb0-4650-9e0a-eb72933889bb")]
 
 // Version information for an assembly consists of the following four values:
 //
