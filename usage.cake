@@ -1,12 +1,14 @@
- #addin "Cake.Gradle"
+ #r "artifacts/build/Cake.Gradle.dll"
+
+// execute from cake using: ./build.ps1 -Script usage.cake
 
 Task("Gradle-Example")
     .Does(() =>
     {
-        Gradle.Run();
-        Gradle.Run("hello");
-        Gradle.WithArguments("--offline --build-file build.gradle").Run("hello");
-        Gradle.WithLogLevel(GradleLogLevel.Info).WithArguments("--offline --build-file build.gradle").Run("hello");
+        Gradle.FromPath(".").Run();
+        // Gradle.WithTask("hello").Run();
+        // Gradle.WithTask("hello").WithArguments("--offline --build-file build.gradle").Run();
+        // Gradle.WithTasks("hello").WithLogLevel(GradleLogLevel.Info).WithArguments("--offline --build-file build.gradle").Run();
     });
 
 RunTarget("Gradle-Example");
