@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Cake.Gradle</id>
+    <title>Cake.Gradle</title>
+    <authors>Phil Oyston</authors>
+    <owners>Phil Oyston</owners>
+    <licenseUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</licenseUrl>
+    <projectUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An aliase for Cake to help with running Gradle commands</description>
+    <tags>Cake Script Build Gradle</tags>
+  </metadata>
+  <files>
+    <!-- <file src="..\..\artifacts\build\Cake.Gradle.xml" target="lib\net45" /> -->
+    <file src="..\..\artifacts\build\Cake.Gradle.dll" target="lib\net45" />
+  </files>
+</package>

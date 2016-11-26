@@ -19,7 +19,7 @@ var artifacts               = MakeAbsolute(Directory(Argument("artifactPath", ".
 var testResultsPath         = MakeAbsolute(Directory(artifacts + "./test-results"));
 var versionAssemblyInfo     = MakeAbsolute(File(Argument("versionAssemblyInfo", "./src/VersionAssemblyInfo.cs")));
 var testAssemblies          = new List<FilePath> { 
-                                MakeAbsolute(File("./src/Cake.Gradle.Tests/bin/" + configuration + "/Cake.Gradle.Tests.dll"))
+                                MakeAbsolute(File("./tests/Cake.Gradle.Tests/bin/" + configuration + "/Cake.Gradle.Tests.dll"))
                               };
 
 SolutionParserResult solution        = null;
