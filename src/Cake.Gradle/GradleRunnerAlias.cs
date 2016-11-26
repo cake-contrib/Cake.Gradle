@@ -4,7 +4,7 @@ using Cake.Core.Annotations;
 
 namespace Cake.Gradle
 {
-    [CakeAliasCategory("Npm")]
+    [CakeAliasCategory("Gradle")]
     public static class GradleRunnerAlias
     {
 
