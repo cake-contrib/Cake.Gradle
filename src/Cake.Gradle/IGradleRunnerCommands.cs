@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace Cake.Gradle
+﻿namespace Cake.Gradle
 {
+    /// <summary>
+    /// Gradle Runner command interface
+    /// </summary>
     public interface IGradleRunnerCommands
     {
         /// <summary>

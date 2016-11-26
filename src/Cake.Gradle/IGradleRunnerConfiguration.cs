@@ -9,27 +9,27 @@ namespace Cake.Gradle
         /// </summary>
         /// <param name="logLevel"></param>
         /// <returns></returns>
-        IGradleRunnerConfiguration WithLogLevel(GradleLogLevel logLevel);
+        IGradleRunnerCommands WithLogLevel(GradleLogLevel logLevel);
 
         /// <summary>
         /// Sets the gradle task to be run
         /// </summary>
         /// <param name="task"></param>
         /// <returns></returns>
-        IGradleRunnerConfiguration WithTask(string task);
+        IGradleRunnerCommands WithTask(string task);
 
         /// <summary>
         /// Sets the gradle arguments to be added
         /// </summary>
         /// <param name="arguments"></param>
         /// <returns></returns>
-        IGradleRunnerConfiguration WithArguments(string arguments);
+        IGradleRunnerCommands WithArguments(string arguments);
 
         /// <summary>
         /// Sets the working directory for gradle commands
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        IGradleRunnerConfiguration FromPath(DirectoryPath path);
+        IGradleRunnerCommands FromPath(DirectoryPath path);
     }
 }

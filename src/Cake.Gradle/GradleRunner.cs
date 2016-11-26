@@ -48,13 +48,13 @@ namespace Cake.Gradle
         /// </summary>
         /// <param name="logLevel"></param>
         /// <returns></returns>
-        public IGradleRunnerConfiguration WithLogLevel(GradleLogLevel logLevel)
+        public IGradleRunnerCommands WithLogLevel(GradleLogLevel logLevel)
         {
             _logLevel = logLevel;
             return this;
         }
 
-        public IGradleRunnerConfiguration WithTask(string task)
+        public IGradleRunnerCommands WithTask(string task)
         {
             _tasks += task + TasksSeparator;
             return this;
@@ -66,13 +66,13 @@ namespace Cake.Gradle
             return this;
         }
 
-        public IGradleRunnerConfiguration WithArguments(string arguments)
+        public IGradleRunnerCommands WithArguments(string arguments)
         {
             _arguments = arguments;
             return this;
         }
 
-        public IGradleRunnerConfiguration FromPath(DirectoryPath path)
+        public IGradleRunnerCommands FromPath(DirectoryPath path)
         {
             _workingDirectoryPath = path;
             return this;
@@ -148,6 +148,7 @@ namespace Cake.Gradle
 
         protected override DirectoryPath GetWorkingDirectory(GradleRunnerSettings settings)
         {
+            Console.WriteLine("dir: "+_workingDirectoryPath);
             if (_workingDirectoryPath == null) return base.GetWorkingDirectory(settings);
             if (!_fileSystem.Exist(_workingDirectoryPath))
                 throw new DirectoryNotFoundException(
