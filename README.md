@@ -1,5 +1,11 @@
 # cake-gradle
-Aliases to assist with running Webpack from Cake build scripts
+Aliases to assist with running Gradle from Cake build scripts
+
+## Prerequisites
+
+* Java Runtime Environment
+
+## Status
 
 Work in progress. Currently stuck with the following error (.FromPath() is probably not working as expected).
 
