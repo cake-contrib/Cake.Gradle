@@ -254,3 +254,7 @@ _Pvt_Extensions
 
 /app.js
 /app.bundle.js
+
+# Gradle
+.gradle/
+gradle/
