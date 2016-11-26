@@ -2,6 +2,8 @@
 {
     public enum GradleLogLevel
     {
+        LifecycleAndHigher,
+
         /// <summary>
         /// -q, --quiet
         /// </summary>

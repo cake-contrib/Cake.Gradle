@@ -1,4 +1,6 @@
-﻿namespace Cake.Gradle
+﻿using Cake.Core.IO;
+
+namespace Cake.Gradle
 {
     public interface IGradleRunnerConfiguration
     {
@@ -23,6 +25,11 @@
         /// <returns></returns>
         IGradleRunnerConfiguration WithArguments(string arguments);
 
-
+        /// <summary>
+        /// Sets the working directory for gradle commands
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        IGradleRunnerConfiguration FromPath(DirectoryPath path);
     }
 }

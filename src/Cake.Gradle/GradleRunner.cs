@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -15,12 +16,15 @@ namespace Cake.Gradle
         private GradleLogLevel? _logLevel;
         private string _tasks = string.Empty;
         private string _arguments = string.Empty;
+        private DirectoryPath _workingDirectoryPath;
+        private readonly IFileSystem _fileSystem;
 
         public GradleRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools, Verbosity cakeVerbosityLevel = Verbosity.Normal)
             : base(fileSystem, environment, processRunner, tools)
         {
             _cakeVerbosityLevel = cakeVerbosityLevel;
+            _fileSystem = fileSystem;
         }
 
         protected override string GetToolName()
@@ -68,6 +72,12 @@ namespace Cake.Gradle
             return this;
         }
 
+        public IGradleRunnerConfiguration FromPath(DirectoryPath path)
+        {
+            _workingDirectoryPath = path;
+            return this;
+        }
+
         public IGradleRunnerCommands Run()
         {
             var settings = new GradleRunnerSettings();
@@ -81,8 +91,13 @@ namespace Cake.Gradle
             // USAGE: gradle [option...] [task...]
             var args = new ProcessArgumentBuilder();
             AppendLogLevel(args);
-            args.Append(_arguments.Trim());
-            args.Append(_tasks.Trim());
+            if (!string.IsNullOrWhiteSpace(_arguments)) { 
+                args.Append(_arguments.Trim());
+            }
+            if (!string.IsNullOrWhiteSpace(_tasks))
+            {
+                args.Append(_tasks.Trim());
+            }
             return args;
         }
 
@@ -96,7 +111,10 @@ namespace Cake.Gradle
                         _logLevel = GradleLogLevel.Quiet;
                         break;
                     case Verbosity.Minimal:
-                        _logLevel = GradleLogLevel.Quiet;
+                        _logLevel = GradleLogLevel.LifecycleAndHigher;
+                        break;
+                    case Verbosity.Normal:
+                        _logLevel = GradleLogLevel.LifecycleAndHigher;
                         break;
                     case Verbosity.Verbose:
                         _logLevel = GradleLogLevel.Info;
@@ -120,9 +138,21 @@ namespace Cake.Gradle
                 case GradleLogLevel.Info:
                     args.Append("--info");
                     break;
+                case GradleLogLevel.LifecycleAndHigher:
+                    // no logging option
+                    break;
                 default:
                     throw new ArgumentException("Unsupported gradle log level: " + _logLevel);
             }
+        }
+
+        protected override DirectoryPath GetWorkingDirectory(GradleRunnerSettings settings)
+        {
+            if (_workingDirectoryPath == null) return base.GetWorkingDirectory(settings);
+            if (!_fileSystem.Exist(_workingDirectoryPath))
+                throw new DirectoryNotFoundException(
+                    $"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+            return _workingDirectoryPath;
         }
     }
 }
