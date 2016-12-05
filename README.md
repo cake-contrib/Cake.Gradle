@@ -41,5 +41,5 @@ Works similar to the [cake-gulp](https://github.com/Philo/cake-gulp) addin.
 
 ## Word of caution
 
-Cake and Gradle are both task runners. I consider it bad practice to call one taks runner out of another. 
+Cake and Gradle are both task runners. I consider it bad practice to call one task runner out of another. 
 It would be better to only have one tool per concern (i.e. task running) - but sometimes this is not feasible.
