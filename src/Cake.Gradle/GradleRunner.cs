@@ -8,7 +8,7 @@ using Cake.Core.Tooling;
 
 namespace Cake.Gradle
 {
-    public class GradleRunner : Tool<GradleRunnerSettings>, IGradleRunnerConfiguration, IGradleRunnerCommands
+    public class GradleRunner : Tool<GradleRunnerSettings>
     {
         private const string TasksSeparator = " ";
 
@@ -18,6 +18,7 @@ namespace Cake.Gradle
         private string _arguments = string.Empty;
         private DirectoryPath _workingDirectoryPath;
         private readonly IFileSystem _fileSystem;
+        private readonly ICakeEnvironment _environment;
 
         public GradleRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools, Verbosity cakeVerbosityLevel = Verbosity.Normal)
@@ -25,6 +26,7 @@ namespace Cake.Gradle
         {
             _cakeVerbosityLevel = cakeVerbosityLevel;
             _fileSystem = fileSystem;
+            _environment = environment;
         }
 
         protected override string GetToolName()
@@ -38,9 +40,17 @@ namespace Cake.Gradle
         /// <returns>The tool executable name</returns>
         protected override IEnumerable<string> GetToolExecutableNames()
         {
-            yield return "gradlew";
-            yield return "gradlew.bat";
-            yield return "gradle";
+            if (_environment.Platform.Family == PlatformFamily.Windows)
+            {
+                // windows only, wrapper not supported
+                yield return "gradlew.bat";
+                yield return "gradle.bat";
+            }
+            else
+            {
+                yield return "gradlew";
+                yield return "gradle"; 
+            }
         }
 
         /// <summary>
@@ -48,42 +58,41 @@ namespace Cake.Gradle
         /// </summary>
         /// <param name="logLevel"></param>
         /// <returns></returns>
-        public IGradleRunnerCommands WithLogLevel(GradleLogLevel logLevel)
+        public GradleRunner WithLogLevel(GradleLogLevel logLevel)
         {
             _logLevel = logLevel;
             return this;
         }
 
-        public IGradleRunnerCommands WithTask(string task)
+        public GradleRunner WithTask(string task)
         {
             _tasks += task + TasksSeparator;
             return this;
         }
 
-        public IGradleRunnerConfiguration WithTask(params string[] tasks)
+        public GradleRunner WithTask(params string[] tasks)
         {
             _tasks += string.Join(TasksSeparator, tasks) + TasksSeparator;
             return this;
         }
 
-        public IGradleRunnerCommands WithArguments(string arguments)
+        public GradleRunner WithArguments(string arguments)
         {
             _arguments = arguments;
             return this;
         }
 
-        public IGradleRunnerCommands FromPath(DirectoryPath path)
+        public GradleRunner FromPath(DirectoryPath path)
         {
             _workingDirectoryPath = path;
             return this;
         }
 
-        public IGradleRunnerCommands Run()
+        public void Run()
         {
             var settings = new GradleRunnerSettings();
             var args = GetGradleArguments();
             Run(settings, args);
-            return this;
         }
 
         private ProcessArgumentBuilder GetGradleArguments()
@@ -148,7 +157,6 @@ namespace Cake.Gradle
 
         protected override DirectoryPath GetWorkingDirectory(GradleRunnerSettings settings)
         {
-            Console.WriteLine("dir: "+_workingDirectoryPath);
             if (_workingDirectoryPath == null) return base.GetWorkingDirectory(settings);
             if (!_fileSystem.Exist(_workingDirectoryPath))
                 throw new DirectoryNotFoundException(

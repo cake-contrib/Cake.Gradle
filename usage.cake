@@ -5,7 +5,7 @@
 Task("Gradle-Example")
     .Does(() =>
     {
-        Gradle.FromPath(".").Run();
+        Gradle.FromPath("./example").WithTask("hello").Run();
         // Gradle.WithTask("hello").Run();
         // Gradle.WithTask("hello").WithArguments("--offline --build-file build.gradle").Run();
         // Gradle.WithTasks("hello").WithLogLevel(GradleLogLevel.Info).WithArguments("--offline --build-file build.gradle").Run();
