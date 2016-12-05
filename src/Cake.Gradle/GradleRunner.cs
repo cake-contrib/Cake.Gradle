@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -42,8 +43,8 @@ namespace Cake.Gradle
         {
             if (_environment.Platform.Family == PlatformFamily.Windows)
             {
-                // windows only, wrapper not supported
-                yield return "gradlew.bat";
+                // todo: The specified executable is not a valid application for this OS plattform: gradlew.bat
+                // yield return "gradlew.bat"; 
                 yield return "gradle.bat";
             }
             else
@@ -157,10 +158,16 @@ namespace Cake.Gradle
 
         protected override DirectoryPath GetWorkingDirectory(GradleRunnerSettings settings)
         {
-            if (_workingDirectoryPath == null) return base.GetWorkingDirectory(settings);
+            if (_workingDirectoryPath == null)
+            {
+                return base.GetWorkingDirectory(settings);
+            }
+
             if (!_fileSystem.Exist(_workingDirectoryPath))
-                throw new DirectoryNotFoundException(
-                    $"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+            {
+                throw new DirectoryNotFoundException($"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+            }
+
             return _workingDirectoryPath;
         }
     }

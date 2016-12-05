@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Shouldly;
+﻿using Shouldly;
 using Xunit;
 
 namespace Cake.Gradle.Tests
@@ -18,10 +13,24 @@ namespace Cake.Gradle.Tests
         }
 
         [Fact]
-        public void No_Install_Settings_Should_Use_Correct_Argument_Provided_In_NpmInstallSettings()
+        public void Run_NoArguments_CallsGradleWithoutArguments()
         {
             var result = _fixture.Run();
             result.Args.Length.ShouldBe(0);
+        }
+
+        [Fact]
+        public void Run_WithTask_CallsGradleWithTask()
+        {
+            var result = _fixture.WithTask("task").Run();
+            result.Args.ShouldBe("task");
+        }
+
+        [Fact]
+        public void Run_WithArguments_CallsGradleWithArguments()
+        {
+            var result = _fixture.WithArguments("--argument").Run();
+            result.Args.ShouldBe("--argument");
         }
 
         [Theory]
@@ -29,7 +38,7 @@ namespace Cake.Gradle.Tests
         [InlineData(GradleLogLevel.Quiet, "--quiet")]
         [InlineData(GradleLogLevel.Debug, "--debug")]
         [InlineData(GradleLogLevel.LifecycleAndHigher, "")]
-        public void Custom_LogLevel_Should_Be_Applied(GradleLogLevel logLevel, string args)
+        public void Run_WithLogLevel_CallsGradleWithCustomLogLevel(GradleLogLevel logLevel, string args)
         {
             _fixture.WithLogLevel(logLevel);
 
