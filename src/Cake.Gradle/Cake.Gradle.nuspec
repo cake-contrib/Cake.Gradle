@@ -3,8 +3,8 @@
   <metadata>
     <id>Cake.Gradle</id>
     <title>Cake.Gradle</title>
-    <authors>Phil Oyston</authors>
-    <owners>Phil Oyston</owners>
+    <authors>Christian Abegg</authors>
+    <owners>Christian Abegg</owners>
     <licenseUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</licenseUrl>
     <projectUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-medium.png</iconUrl>
