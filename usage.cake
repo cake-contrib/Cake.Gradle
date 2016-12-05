@@ -1,4 +1,8 @@
+ // build artifacts first by executing ./build.ps1
  #r "artifacts/build/Cake.Gradle.dll"
+
+// requires Java Runtime Environment 
+// requires Gradle executable in the PATH (gradle wrapper not yet supported)
 
 // execute from cake using: ./build.ps1 -Script usage.cake
 
