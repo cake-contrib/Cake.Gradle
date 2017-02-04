@@ -42,10 +42,10 @@ namespace Cake.Gradle
         }
 
         private string WrapperExecutableName
-            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradlew";
 
         private string PlainExecutableName
-            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradle.bat" : "gradle";
 
         private bool IsGradleWrapperUsed
         {
