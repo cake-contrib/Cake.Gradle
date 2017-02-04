@@ -9,20 +9,16 @@
 Task("Gradle-Example")
     .Does(() =>
     {
-        // specify a project folder and a task
+        // Run 'gradle --version'
+        Gradle.WithArguments("--version").Run();
+        // Run 'gradle hello' in a specific folder
+        // Note: if you have a gradle wrapper setup in the specified path, this one will be used
         Gradle.FromPath("./example").WithTask("hello").Run();
-        // specify the Gradle log level
-        // if no log level is set, it is derived from the Cake verbosity (which is set to 'verbose' in build.ps1)
+        // Run 'gradle hello' in a specific folder with default log level
+        // Note: if no log level is set, it is derived from the Cake verbosity (which is set to 'verbose' in build.ps1)
         Gradle.FromPath("./example").WithTask("hello").WithLogLevel(GradleLogLevel.Default).Run(); 
-        // specify arguments
+        // Run 'gradle --offline --build-file build.gradle hello' in a specific folder
         Gradle.FromPath("./example").WithTask("hello").WithArguments("--offline --build-file build.gradle").Run();
-        // complete example
-        Gradle
-            .FromPath("./example")
-            .WithTask("hello")
-            .WithLogLevel(GradleLogLevel.Quiet)  
-            .WithArguments("--offline --build-file build.gradle")
-            .Run();
     });
 
 RunTarget("Gradle-Example");
