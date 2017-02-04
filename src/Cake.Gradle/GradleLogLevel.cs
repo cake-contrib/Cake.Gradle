@@ -2,7 +2,11 @@
 {
     public enum GradleLogLevel
     {
-        LifecycleAndHigher,
+        /// <summary>
+        /// no command line options
+        /// Log Level: Lifecycle or higher
+        /// </summary>
+        Default,
 
         /// <summary>
         /// -q, --quiet

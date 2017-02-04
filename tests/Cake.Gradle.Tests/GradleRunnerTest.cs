@@ -37,7 +37,7 @@ namespace Cake.Gradle.Tests
         [InlineData(GradleLogLevel.Info, "--info")]
         [InlineData(GradleLogLevel.Quiet, "--quiet")]
         [InlineData(GradleLogLevel.Debug, "--debug")]
-        [InlineData(GradleLogLevel.LifecycleAndHigher, "")]
+        [InlineData(GradleLogLevel.Default, "")]
         public void Run_WithLogLevel_CallsGradleWithCustomLogLevel(GradleLogLevel logLevel, string args)
         {
             _fixture.WithLogLevel(logLevel);
@@ -45,6 +45,15 @@ namespace Cake.Gradle.Tests
             var result = _fixture.Run();
 
             result.Args.ShouldBe($"{args}");
+        }
+
+        [Fact]
+        public void Run_WithoutLogLevel_CallsGradleWithDefaultLogLevel()
+        {
+            var result = _fixture.Run();
+            result.Args.ShouldNotContain("--quiet");
+            result.Args.ShouldNotContain("--info");
+            result.Args.ShouldNotContain("--debug");
         }
     }
 }

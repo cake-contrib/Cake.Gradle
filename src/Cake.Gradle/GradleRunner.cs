@@ -75,7 +75,7 @@ namespace Cake.Gradle
         }
 
         /// <summary>
-        /// Sets the npm logging level
+        /// Sets the gradle logging level
         /// </summary>
         /// <param name="logLevel"></param>
         /// <returns></returns>
@@ -120,15 +120,19 @@ namespace Cake.Gradle
         {
             // USAGE: gradle [option...] [task...]
             var args = new ProcessArgumentBuilder();
+
             AppendLogLevel(args);
+
             if (!string.IsNullOrWhiteSpace(_arguments))
             {
                 args.Append(_arguments.Trim());
             }
+
             if (!string.IsNullOrWhiteSpace(_tasks))
             {
                 args.Append(_tasks.Trim());
             }
+
             return args;
         }
 
@@ -142,10 +146,10 @@ namespace Cake.Gradle
                         _logLevel = GradleLogLevel.Quiet;
                         break;
                     case Verbosity.Minimal:
-                        _logLevel = GradleLogLevel.LifecycleAndHigher;
+                        _logLevel = GradleLogLevel.Default;
                         break;
                     case Verbosity.Normal:
-                        _logLevel = GradleLogLevel.LifecycleAndHigher;
+                        _logLevel = GradleLogLevel.Default;
                         break;
                     case Verbosity.Verbose:
                         _logLevel = GradleLogLevel.Info;
@@ -169,7 +173,7 @@ namespace Cake.Gradle
                 case GradleLogLevel.Info:
                     args.Append("--info");
                     break;
-                case GradleLogLevel.LifecycleAndHigher:
+                case GradleLogLevel.Default:
                     // no logging option
                     break;
                 default:

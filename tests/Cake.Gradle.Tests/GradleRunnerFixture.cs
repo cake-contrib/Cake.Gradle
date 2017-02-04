@@ -1,12 +1,9 @@
-﻿using System;
-using Cake.Core.Diagnostics;
-using Cake.Testing.Fixtures;
+﻿using Cake.Testing.Fixtures;
 
 namespace Cake.Gradle.Tests
 {
     public class GradleRunnerFixture : ToolFixture<GradleRunnerSettings>
     {
-        private const Verbosity DefaultLevel = Verbosity.Normal;
         private GradleLogLevel? _gradleLogLevel;
         private string _task;
         private string _arguments;
@@ -15,7 +12,7 @@ namespace Cake.Gradle.Tests
 
         protected override void RunTool()
         {
-            var tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools, DefaultLevel);
+            var tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools);
             if (_gradleLogLevel.HasValue) tool.WithLogLevel(_gradleLogLevel.Value);
             if (!string.IsNullOrEmpty(_task)) tool.WithTask(_task);
             if (!string.IsNullOrEmpty(_arguments)) tool.WithArguments(_arguments);
