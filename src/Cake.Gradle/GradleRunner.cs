@@ -30,6 +30,23 @@ namespace Cake.Gradle
             _environment = environment;
         }
 
+        private string WrapperExecutableName
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+
+        private string PlainExecutableName
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+
+        private bool IsGradleWrapperUsed
+        {
+            get
+            {
+                if (_workingDirectoryPath == null) return false;
+
+                var wrapperExecutable = _workingDirectoryPath.GetFilePath(WrapperExecutableName);
+                return File.Exists(wrapperExecutable.FullPath);
+            }
+        }
+
         protected override string GetToolName()
         {
             return "Gradle Runner";
@@ -41,17 +58,20 @@ namespace Cake.Gradle
         /// <returns>The tool executable name</returns>
         protected override IEnumerable<string> GetToolExecutableNames()
         {
-            if (_environment.Platform.Family == PlatformFamily.Windows)
+            if (IsGradleWrapperUsed)
             {
-                // todo: The specified executable is not a valid application for this OS plattform: gradlew.bat
-                // yield return "gradlew.bat"; 
-                yield return "gradle.bat";
+                yield return WrapperExecutableName;
             }
             else
             {
-                yield return "gradlew";
-                yield return "gradle"; 
+                yield return PlainExecutableName;
             }
+        }
+
+
+        protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
+        {
+            return GetToolExecutableNames().Select(e => GetWorkingDirectory(settings).GetFilePath(e));
         }
 
         /// <summary>
@@ -101,7 +121,8 @@ namespace Cake.Gradle
             // USAGE: gradle [option...] [task...]
             var args = new ProcessArgumentBuilder();
             AppendLogLevel(args);
-            if (!string.IsNullOrWhiteSpace(_arguments)) { 
+            if (!string.IsNullOrWhiteSpace(_arguments))
+            {
                 args.Append(_arguments.Trim());
             }
             if (!string.IsNullOrWhiteSpace(_tasks))
@@ -165,7 +186,8 @@ namespace Cake.Gradle
 
             if (!_fileSystem.Exist(_workingDirectoryPath))
             {
-                throw new DirectoryNotFoundException($"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+                throw new DirectoryNotFoundException(
+                    $"Working directory path not found [{_workingDirectoryPath.FullPath}]");
             }
 
             return _workingDirectoryPath;
