@@ -44,7 +44,7 @@ See also working usage example `usage.cake` (requires Java Runtime Environment).
 
 ## Compatibility
 
-Developed and tested with Cake 0.13.
+Developed and tested with Cake 0.15.2
 
 ## Motivation
 
