@@ -41,10 +41,10 @@ namespace Cake.Gradle
             _environment = environment;
         }
 
-        private string WrapperExecutableName
+        private string GradleWrapperExecutable
             => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradlew";
 
-        private string PlainExecutableName
+        private string GradlePlainExecutable
             => _environment.Platform.Family == PlatformFamily.Windows ? "gradle.bat" : "gradle";
 
         private bool IsGradleWrapperUsed
@@ -53,7 +53,7 @@ namespace Cake.Gradle
             {
                 if (_workingDirectoryPath == null) return false;
 
-                var wrapperExecutable = _workingDirectoryPath.GetFilePath(PlainExecutableName);
+                var wrapperExecutable = _workingDirectoryPath.GetFilePath(GradlePlainExecutable);
                 return File.Exists(wrapperExecutable.FullPath);
             }
         }
@@ -74,11 +74,11 @@ namespace Cake.Gradle
         {
             if (IsGradleWrapperUsed)
             {
-                yield return WrapperExecutableName;
+                yield return GradleWrapperExecutable;
             }
             else
             {
-                yield return PlainExecutableName;
+                yield return GradlePlainExecutable;
             }
         }
 
