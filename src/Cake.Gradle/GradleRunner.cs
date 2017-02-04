@@ -53,8 +53,8 @@ namespace Cake.Gradle
             {
                 if (_workingDirectoryPath == null) return false;
 
-                var wrapperExecutable = _workingDirectoryPath.GetFilePath(GradlePlainExecutable);
-                return File.Exists(wrapperExecutable.FullPath);
+                var wrapperFilePath = _workingDirectoryPath.GetFilePath(GradleWrapperExecutable);
+                return File.Exists(wrapperFilePath.FullPath);
             }
         }
 
@@ -89,12 +89,10 @@ namespace Cake.Gradle
         /// <returns></returns>
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
         {
-            return GetToolExecutableNames().Select(e => GetWorkingDirectory(settings).GetFilePath(e));
-/*
-            if (!IsGradleWrapperAvailable) return base.GetAlternativeToolPaths(settings);
+            if (!IsGradleWrapperUsed) return base.GetAlternativeToolPaths(settings);
 
-            var wrapper = GetWorkingDirectory(settings).GetFilePath(GradleWrapperExecutableName);
-            return new[] {wrapper};*/
+            var wrapper = GetWorkingDirectory(settings).GetFilePath(GradleWrapperExecutable);
+            return new[] {wrapper};
         }
 
         /// <summary>
