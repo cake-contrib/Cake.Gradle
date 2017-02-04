@@ -56,7 +56,7 @@ namespace Cake.Gradle
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
         {
             // todo: how to prefer alternative tool path over tool in system PATH?
-            return GetToolExecutableNames().Select(e => _workingDirectoryPath.GetFilePath(e));
+            return GetToolExecutableNames().Select(e => GetWorkingDirectory(settings).GetFilePath(e));
         }
 
         /// <summary>
