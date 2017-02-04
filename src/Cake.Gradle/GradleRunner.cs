@@ -30,6 +30,21 @@ namespace Cake.Gradle
             _environment = environment;
         }
 
+        private string WrapperExecutableName => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+
+        private string PlainExecutableName => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+
+        private bool IsGradleWrapperUsed
+        {
+            get
+            {
+                if (_workingDirectoryPath == null) return false;
+
+                var wrapperExecutable = _workingDirectoryPath.GetFilePath(WrapperExecutableName);
+                return File.Exists(wrapperExecutable.FullPath);
+            }
+        }
+
         protected override string GetToolName()
         {
             return "Gradle Runner";
@@ -41,21 +56,20 @@ namespace Cake.Gradle
         /// <returns>The tool executable name</returns>
         protected override IEnumerable<string> GetToolExecutableNames()
         {
-            if (_environment.Platform.Family == PlatformFamily.Windows)
+            if (IsGradleWrapperUsed)
             {
-                yield return "gradlew.bat";
-                yield return "gradle.bat";
+                yield return WrapperExecutableName;
             }
             else
             {
-                yield return "gradlew";
-                yield return "gradle"; 
+                yield return PlainExecutableName;
             }
         }
 
+
+
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
         {
-            // todo: how to prefer alternative tool path over tool in system PATH?
             return GetToolExecutableNames().Select(e => GetWorkingDirectory(settings).GetFilePath(e));
         }
 
