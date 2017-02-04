@@ -1,9 +1,12 @@
 ﻿namespace Cake.Gradle
 {
+    /// <summary>
+    /// Represents the various log levels the Gradle executable can be called with.
+    /// </summary>
     public enum GradleLogLevel
     {
         /// <summary>
-        /// no command line options
+        /// No command line options
         /// Log Level: Lifecycle or higher
         /// </summary>
         Default,

@@ -9,6 +9,9 @@ using Cake.Core.Tooling;
 
 namespace Cake.Gradle
 {
+    /// <summary>
+    /// A wrapper around Gradle functionality within a Cake build script.
+    /// </summary>
     public class GradleRunner : Tool<GradleRunnerSettings>
     {
         private const string TasksSeparator = " ";
@@ -21,9 +24,17 @@ namespace Cake.Gradle
         private readonly IFileSystem _fileSystem;
         private readonly ICakeEnvironment _environment;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GradleRunner" /> class.
+        /// </summary>
+        /// <param name="fileSystem">The file system</param>
+        /// <param name="environment">The environment</param>
+        /// <param name="processRunner">The process runner</param>
+        /// <param name="toolLocator">The tool locator</param>
+        /// <param name="cakeVerbosityLevel">Specifies the current Cake verbosity level</param>
         public GradleRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
-            IToolLocator tools, Verbosity cakeVerbosityLevel = Verbosity.Normal)
-            : base(fileSystem, environment, processRunner, tools)
+            IToolLocator toolLocator, Verbosity cakeVerbosityLevel = Verbosity.Normal)
+            : base(fileSystem, environment, processRunner, toolLocator)
         {
             _cakeVerbosityLevel = cakeVerbosityLevel;
             _fileSystem = fileSystem;
@@ -42,11 +53,14 @@ namespace Cake.Gradle
             {
                 if (_workingDirectoryPath == null) return false;
 
-                var wrapperExecutable = _workingDirectoryPath.GetFilePath(WrapperExecutableName);
+                var wrapperExecutable = _workingDirectoryPath.GetFilePath(PlainExecutableName);
                 return File.Exists(wrapperExecutable.FullPath);
             }
         }
 
+        /// <summary>
+        /// Gets this tools name.
+        /// </summary>
         protected override string GetToolName()
         {
             return "Gradle Runner";
@@ -68,10 +82,19 @@ namespace Cake.Gradle
             }
         }
 
-
+        /// <summary>
+        /// Gets the path to the Gradle wrapper, if available.
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
         {
             return GetToolExecutableNames().Select(e => GetWorkingDirectory(settings).GetFilePath(e));
+/*
+            if (!IsGradleWrapperAvailable) return base.GetAlternativeToolPaths(settings);
+
+            var wrapper = GetWorkingDirectory(settings).GetFilePath(GradleWrapperExecutableName);
+            return new[] {wrapper};*/
         }
 
         /// <summary>
@@ -85,30 +108,50 @@ namespace Cake.Gradle
             return this;
         }
 
+        /// <summary>
+        /// Specifies a Gradle task to be run.
+        /// </summary>
+        /// <param name="task">task name</param>
         public GradleRunner WithTask(string task)
         {
             _tasks += task + TasksSeparator;
             return this;
         }
 
+        /// <summary>
+        /// Specifies Gradle tasks to be run.
+        /// </summary>
+        /// <param name="tasks">task names</param>
         public GradleRunner WithTask(params string[] tasks)
         {
             _tasks += string.Join(TasksSeparator, tasks) + TasksSeparator;
             return this;
         }
 
+        /// <summary>
+        /// Specifies arguments to be passed to the Gradle executable.
+        /// </summary>
+        /// <param name="arguments">arguments</param>
         public GradleRunner WithArguments(string arguments)
         {
             _arguments = arguments;
             return this;
         }
 
+        /// <summary>
+        /// Specifies the path the Gradle project resides in.
+        /// </summary>
+        /// <param name="path">The path to the Gradle project</param>
+        /// <returns></returns>
         public GradleRunner FromPath(DirectoryPath path)
         {
             _workingDirectoryPath = path;
             return this;
         }
 
+        /// <summary>
+        /// Starts the Gradle run.
+        /// </summary>
         public void Run()
         {
             var settings = new GradleRunnerSettings();
@@ -181,6 +224,13 @@ namespace Cake.Gradle
             }
         }
 
+        /// <summary>
+        /// Gets the working directory.
+        /// Uses the directory specified with 'FromPath()'.
+        /// Otherwise defaults to the currently set working directory.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <returns>The working directory for the tool.</returns>
         protected override DirectoryPath GetWorkingDirectory(GradleRunnerSettings settings)
         {
             if (_workingDirectoryPath == null)

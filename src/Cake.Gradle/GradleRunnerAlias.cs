@@ -5,7 +5,7 @@ using Cake.Core.Annotations;
 namespace Cake.Gradle
 {
     /// <summary>
-    /// Provides a wrapper around Gradle functionality within a Cake build script
+    /// Provides a wrapper around Gradle functionality within a Cake build script.
     /// </summary>
     [CakeAliasCategory("Gradle")]
     public static class GradleRunnerAlias
