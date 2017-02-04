@@ -30,9 +30,11 @@ namespace Cake.Gradle
             _environment = environment;
         }
 
-        private string WrapperExecutableName => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+        private string WrapperExecutableName
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
 
-        private string PlainExecutableName => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
+        private string PlainExecutableName
+            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradle";
 
         private bool IsGradleWrapperUsed
         {
@@ -65,7 +67,6 @@ namespace Cake.Gradle
                 yield return PlainExecutableName;
             }
         }
-
 
 
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
@@ -120,7 +121,8 @@ namespace Cake.Gradle
             // USAGE: gradle [option...] [task...]
             var args = new ProcessArgumentBuilder();
             AppendLogLevel(args);
-            if (!string.IsNullOrWhiteSpace(_arguments)) { 
+            if (!string.IsNullOrWhiteSpace(_arguments))
+            {
                 args.Append(_arguments.Trim());
             }
             if (!string.IsNullOrWhiteSpace(_tasks))
@@ -184,7 +186,8 @@ namespace Cake.Gradle
 
             if (!_fileSystem.Exist(_workingDirectoryPath))
             {
-                throw new DirectoryNotFoundException($"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+                throw new DirectoryNotFoundException(
+                    $"Working directory path not found [{_workingDirectoryPath.FullPath}]");
             }
 
             return _workingDirectoryPath;
