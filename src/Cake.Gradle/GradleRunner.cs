@@ -43,8 +43,7 @@ namespace Cake.Gradle
         {
             if (_environment.Platform.Family == PlatformFamily.Windows)
             {
-                // todo: The specified executable is not a valid application for this OS plattform: gradlew.bat
-                // yield return "gradlew.bat"; 
+                yield return "gradlew.bat";
                 yield return "gradle.bat";
             }
             else
@@ -52,6 +51,12 @@ namespace Cake.Gradle
                 yield return "gradlew";
                 yield return "gradle"; 
             }
+        }
+
+        protected override IEnumerable<FilePath> GetAlternativeToolPaths(GradleRunnerSettings settings)
+        {
+            // todo: how to prefer alternative tool path over tool in system PATH?
+            return GetToolExecutableNames().Select(e => _workingDirectoryPath.GetFilePath(e));
         }
 
         /// <summary>
