@@ -1,6 +1,6 @@
 # cake-gradle
 
-Aliases to assist with running Gradle builds from Cake build scripts
+Aliases to assist with running Gradle builds from Cake build scripts.
 
 ## Usage
 
