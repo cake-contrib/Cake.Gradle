@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<package >
+<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>Cake.Gradle</id>
     <title>Cake.Gradle</title>
@@ -7,7 +7,7 @@
     <owners>Christian Abegg</owners>
     <licenseUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</licenseUrl>
     <projectUrl>https://github.com/abeggchr/cake-gradle/blob/master/README.md</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An aliase for Cake to help with running Gradle commands</description>
     <tags>Cake Script Build Gradle</tags>
