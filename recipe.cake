@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.1.2
+#l nuget:?package=Cake.Recipe&version=2.1.0
 
 Environment.SetVariableNames();
 
@@ -9,15 +9,13 @@ BuildParameters.SetParameters(
     title: "Cake.Gradle",
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake-Gradle",
-    appVeyorAccountName: "cakecontrib",
-    shouldRunGitVersion: true,
-    shouldExecuteGitLink: false,
     shouldRunCodecov: true,
-    shouldDeployGraphDocumentation: false,
-    shouldRunDotNetCorePack: true);
+    shouldRunDotNetCorePack: true,
+    shouldUseDeterministicBuilds: true);
 
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context);
 
 Build.RunDotNetCore();
+
