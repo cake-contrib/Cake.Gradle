@@ -120,8 +120,8 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributorsimage]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
-[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake.gradle
-[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake.gradle.svg?logo=appveyor&style=flat-square
+[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-gradle
+[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-gradle.svg?logo=appveyor&style=flat-square
 [codecov]: https://codecov.io/gh/cake-contrib/cake.gradle
 [codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/cake.gradle.svg?logo=codecov&style=flat-square
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
