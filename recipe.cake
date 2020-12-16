@@ -8,7 +8,7 @@ BuildParameters.SetParameters(
     sourceDirectoryPath: "./src",
     title: "Cake.Gradle",
     repositoryOwner: "cake-contrib",
-    repositoryName: "Cake-Gradle",
+    repositoryName: "cake.gradle",
     shouldRunCodecov: true,
     shouldRunDotNetCorePack: true,
     shouldUseDeterministicBuilds: true);
