@@ -5,7 +5,7 @@
 [![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Aliases to assist with running Gradle builds from Cake build scripts.
@@ -105,6 +105,7 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 <table>
   <tr>
     <td align="center"><a href="https://github.com/abeggchr"><img src="https://avatars1.githubusercontent.com/u/1616011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christian Abegg</b></sub></a><br /><a href="https://github.com/cake-contrib/cake.gradle/commits?author=abeggchr" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/nils-a"><img src="https://avatars3.githubusercontent.com/u/349188?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nils Andresen</b></sub></a><br /><a href="https://github.com/cake-contrib/cake.gradle/commits?author=nils-a" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -115,7 +116,7 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 
 ## License
 
-[MIT License © Christian Abegg][license]
+[MIT License © Christian Abegg, Nils Andresen][license]
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributorsimage]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square

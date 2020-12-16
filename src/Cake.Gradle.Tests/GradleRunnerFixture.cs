@@ -19,6 +19,7 @@ namespace Cake.Gradle.Tests
             tool.Run();
         }
 
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public GradleRunnerFixture WithLogLevel(GradleLogLevel logLevel)
         {
             _gradleLogLevel = logLevel;
