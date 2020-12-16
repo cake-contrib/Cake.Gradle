@@ -104,7 +104,7 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/abeggchr"><img src="https://avatars1.githubusercontent.com/u/1616011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christian Abegg</b></sub></a><br /><a href="https://github.com/cake-contrib/cake-gradle/commits?author=abeggchr" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/abeggchr"><img src="https://avatars1.githubusercontent.com/u/1616011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christian Abegg</b></sub></a><br /><a href="https://github.com/cake-contrib/cake.gradle/commits?author=abeggchr" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -118,11 +118,11 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 [MIT License © Christian Abegg][license]
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
-[all-contributorsimage]: https://img.shields.io/github/all-contributors/cake-contrib/Cake-Gradle.svg?color=orange&style=flat-square
-[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-gradle
-[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-gradle.svg?logo=appveyor&style=flat-square
-[codecov]: https://codecov.io/gh/cake-contrib/Cake-Gradle
-[codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/Cake-Gradle.svg?logo=codecov&style=flat-square
+[all-contributorsimage]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
+[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake.gradle
+[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake.gradle.svg?logo=appveyor&style=flat-square
+[codecov]: https://codecov.io/gh/cake-contrib/cake.gradle
+[codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/cake.gradle.svg?logo=codecov&style=flat-square
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
 [contributing]: CONTRIBUTING.md
 [emoji-key]: https://allcontributors.org/docs/en/emoji-key
