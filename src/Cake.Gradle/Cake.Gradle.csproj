@@ -20,8 +20,8 @@
         <FullYear Condition="'$(StartYear)'!='$(EndYear)'">$(StartYear)-$(EndYear)</FullYear>
 
         <!-- Properties related to packaging -->
-        <Authors>Christian Abegg</Authors>
-        <Copyright>Copyright © 2015-2020 — Christian Abegg</Copyright>
+        <Authors>Christian Abegg, Nils Andresen</Authors>
+        <Copyright>Copyright © 2015-2020 — Christian Abegg, $(FullYear) — Nils Andresen</Copyright>
         <Description>Aliases to assist with running Gradle builds from Cake build scripts.</Description>
         <PackageIcon>$(CakeContribGuidelinesIconDestinationLocation)</PackageIcon>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
