@@ -5,40 +5,40 @@ namespace Cake.Gradle.Tests
 {
     public class GradleRunnerFixture : ToolFixture<GradleRunnerSettings>
     {
-        private GradleRunner tool;
+        private GradleRunner _tool;
 
         public GradleRunnerFixture() : base("gradle")
         {
-            tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools);
+            _tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools);
         }
 
         protected override void RunTool()
         {
-            tool.Run();
+            _tool.Run();
         }
 
         // ReSharper disable once UnusedMethodReturnValue.Global
         public GradleRunnerFixture WithLogLevel(GradleLogLevel logLevel)
         {
-            tool = tool.WithLogLevel(logLevel);
+            _tool = _tool.WithLogLevel(logLevel);
             return this;
         }
 
         public GradleRunnerFixture WithTask(string task)
         {
-            tool = tool.WithTask(task);
+            _tool = _tool.WithTask(task);
             return this;
         }
 
         public GradleRunnerFixture WithArguments(string arguments)
         {
-            tool = tool.WithArguments(arguments);
+            _tool = _tool.WithArguments(arguments);
             return this;
         }
 
         public GradleRunnerFixture FromPath(DirectoryPath path)
         {
-            tool = tool.FromPath(path);
+            _tool = _tool.FromPath(path);
             return this;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -44,11 +45,11 @@ namespace Cake.Gradle
             _environment = environment;
         }
 
-        private string GradleWrapperExecutable
-            => _environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradlew";
+        private string[] GradleWrapperExecutable
+            => _environment.Platform.Family == PlatformFamily.Windows ? new[] { "gradlew.bat" } : new[] { "gradlew" };
 
-        private string GradlePlainExecutable
-            => _environment.Platform.Family == PlatformFamily.Windows ? "gradle.bat" : "gradle";
+        private string[] GradlePlainExecutable
+            => _environment.Platform.Family == PlatformFamily.Windows ? new[] { "gradle.bat", "gradle.exe" } : new[] { "gradle" };
 
         private bool IsGradleWrapperUsed
         {
@@ -59,8 +60,8 @@ namespace Cake.Gradle
                     return false;
                 }
 
-                var wrapperFilePath = _workingDirectoryPath.GetFilePath(GradleWrapperExecutable);
-                return _fileSystem.Exist(wrapperFilePath);
+                var possibleWrappers = GradleWrapperExecutable.Select(x => _workingDirectoryPath.GetFilePath(x));
+                return possibleWrappers.Any(_fileSystem.Exist);
             }
         }
 
@@ -144,14 +145,7 @@ namespace Cake.Gradle
         /// <returns>The tool executable name.</returns>
         protected override IEnumerable<string> GetToolExecutableNames()
         {
-            if (IsGradleWrapperUsed)
-            {
-                yield return GradleWrapperExecutable;
-            }
-            else
-            {
-                yield return GradlePlainExecutable;
-            }
+            return IsGradleWrapperUsed ? GradleWrapperExecutable : GradlePlainExecutable;
         }
 
         /// <summary>
@@ -166,8 +160,8 @@ namespace Cake.Gradle
                 return base.GetAlternativeToolPaths(settings);
             }
 
-            var wrapper = GetWorkingDirectory(settings).GetFilePath(GradleWrapperExecutable);
-            return new[] { wrapper };
+            var workDir = GetWorkingDirectory(settings);
+            return GradleWrapperExecutable.Select(x => workDir.GetFilePath(new FilePath(x)));
         }
 
         /// <summary>
