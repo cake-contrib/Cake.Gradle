@@ -1,40 +1,44 @@
-﻿using Cake.Testing.Fixtures;
+﻿using Cake.Core.IO;
+using Cake.Testing.Fixtures;
 
 namespace Cake.Gradle.Tests
 {
     public class GradleRunnerFixture : ToolFixture<GradleRunnerSettings>
     {
-        private GradleLogLevel? _gradleLogLevel;
-        private string _task;
-        private string _arguments;
+        private GradleRunner tool;
 
-        public GradleRunnerFixture() : base("gradle") { }
+        public GradleRunnerFixture() : base("gradle")
+        {
+            tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools);
+        }
 
         protected override void RunTool()
         {
-            var tool = new GradleRunner(FileSystem, Environment, ProcessRunner, Tools);
-            if (_gradleLogLevel.HasValue) tool.WithLogLevel(_gradleLogLevel.Value);
-            if (!string.IsNullOrEmpty(_task)) tool.WithTask(_task);
-            if (!string.IsNullOrEmpty(_arguments)) tool.WithArguments(_arguments);
             tool.Run();
         }
 
         // ReSharper disable once UnusedMethodReturnValue.Global
         public GradleRunnerFixture WithLogLevel(GradleLogLevel logLevel)
         {
-            _gradleLogLevel = logLevel;
+            tool = tool.WithLogLevel(logLevel);
             return this;
         }
 
         public GradleRunnerFixture WithTask(string task)
         {
-            _task = task;
+            tool = tool.WithTask(task);
             return this;
         }
 
         public GradleRunnerFixture WithArguments(string arguments)
         {
-            _arguments = arguments;
+            tool = tool.WithArguments(arguments);
+            return this;
+        }
+
+        public GradleRunnerFixture FromPath(DirectoryPath path)
+        {
+            tool = tool.FromPath(path);
             return this;
         }
     }

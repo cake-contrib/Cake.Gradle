@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -61,7 +60,7 @@ namespace Cake.Gradle
                 }
 
                 var wrapperFilePath = _workingDirectoryPath.GetFilePath(GradleWrapperExecutable);
-                return File.Exists(wrapperFilePath.FullPath);
+                return _fileSystem.Exist(wrapperFilePath);
             }
         }
 
@@ -187,7 +186,7 @@ namespace Cake.Gradle
 
             if (!_fileSystem.Exist(_workingDirectoryPath))
             {
-                throw new DirectoryNotFoundException(
+                throw new System.IO.DirectoryNotFoundException(
                     $"Working directory path not found [{_workingDirectoryPath.FullPath}]");
             }
 
