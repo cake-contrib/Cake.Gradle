@@ -4,9 +4,7 @@
 [![Appveyor build][appveyorimage]][appveyor]
 [![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors][all-contributors-badge]](#contributors)
 
 Aliases to assist with running Gradle builds from Cake build scripts.
 
@@ -28,10 +26,12 @@ Aliases to assist with running Gradle builds from Cake build scripts.
 #addin nuget:?package=Cake.Gradle
 ```
 
+Additionally, either `gradle` has to be installed on the system or the project needs a gradle-wrapper (`gradlew`)
+
 ## Usage
 
 ```cs
- #r "artifacts/build/Cake.Gradle.dll"
+ #addin nuget:?package=Cake.Gradle
 
 // Run 'gradle --version'
 Task("Gradle-Version")
@@ -68,7 +68,7 @@ Task("Gradle-Hello-WithArguments")
 
 ## Compatibility
 
-Developed and tested with Cake 0.15.2
+Cake 0.33.0 and later.
 
 ## Motivation
 
@@ -119,7 +119,7 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 [MIT License © Christian Abegg, Nils Andresen][license]
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
-[all-contributorsimage]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
+[all-contributors-badge]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
 [appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-gradle
 [appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-gradle.svg?logo=appveyor&style=flat-square
 [codecov]: https://codecov.io/gh/cake-contrib/cake.gradle
