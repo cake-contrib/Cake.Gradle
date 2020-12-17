@@ -2,9 +2,6 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <CodeAnalysisRuleSet>$(SolutionDir)/Cake.Gradle.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
