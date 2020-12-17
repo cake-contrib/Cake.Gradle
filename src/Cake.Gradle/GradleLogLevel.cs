@@ -17,13 +17,13 @@
         Quiet,
 
         /// <summary>
-        /// -i, --info          
+        /// -i, --info
         /// </summary>
         Info,
 
         /// <summary>
         /// -d, --debug
         /// </summary>
-        Debug
+        Debug,
     }
 }

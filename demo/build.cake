@@ -1,9 +1,7 @@
- // build artifacts first by executing ./build.ps1
- #r "artifacts/build/Cake.Gradle.dll"
+ // build artifacts first by executing ./build.ps1 in root
+ #r "../src/Cake.Gradle/bin/Release/netstandard2.0/Cake.Gradle.dll"
 
 // requires Java Runtime Environment 
-
-// execute from cake using: ./build.ps1 -Script usage.cake
 
 Task("Gradle-Example")
     .Does(() =>
