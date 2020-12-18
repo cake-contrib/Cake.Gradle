@@ -1,7 +1,9 @@
 ﻿using System;
 
 using Cake.Core;
+using Cake.Core.Diagnostics;
 using Cake.Core.IO;
+using Cake.Gradle.Tests.Fixtures;
 using Cake.Testing;
 
 using Shouldly;
@@ -11,31 +13,38 @@ namespace Cake.Gradle.Tests
 {
     public class GradleRunnerTest
     {
-        private readonly GradleRunnerFixture fixture;
+        private readonly GradleRunnerFixture _fixture;
 
         public GradleRunnerTest()
         {
-            fixture = new GradleRunnerFixture();
+            _fixture = new GradleRunnerFixture();
         }
 
         [Fact]
         public void Run_NoArguments_CallsGradleWithoutArguments()
         {
-            var result = fixture.Run();
+            var result = _fixture.Run();
             result.Args.Length.ShouldBe(0);
         }
 
         [Fact]
         public void Run_WithTask_CallsGradleWithTask()
         {
-            var result = fixture.WithTask("task").Run();
+            var result = _fixture.WithTask("task").Run();
             result.Args.ShouldBe("task");
+        }
+
+        [Fact]
+        public void Run_WithMultipleTasks_CallsGradleWithTasks()
+        {
+            var result = _fixture.WithTask("task1", "task2").Run();
+            result.Args.ShouldBe("task1 task2");
         }
 
         [Fact]
         public void Run_WithArguments_CallsGradleWithArguments()
         {
-            var result = fixture.WithArguments("--argument").Run();
+            var result = _fixture.WithArguments("--argument").Run();
             result.Args.ShouldBe("--argument");
         }
 
@@ -46,9 +55,9 @@ namespace Cake.Gradle.Tests
         [InlineData(GradleLogLevel.Default, "")]
         public void Run_WithLogLevel_CallsGradleWithCustomLogLevel(GradleLogLevel logLevel, string args)
         {
-            fixture.WithLogLevel(logLevel);
+            _fixture.WithLogLevel(logLevel);
 
-            var result = fixture.Run();
+            var result = _fixture.Run();
 
             result.Args.ShouldBe($"{args}");
         }
@@ -56,7 +65,7 @@ namespace Cake.Gradle.Tests
         [Fact]
         public void Run_WithoutLogLevel_CallsGradleWithDefaultLogLevel()
         {
-            var result = fixture.Run();
+            var result = _fixture.Run();
             result.Args.ShouldNotContain("--quiet");
             result.Args.ShouldNotContain("--info");
             result.Args.ShouldNotContain("--debug");
@@ -65,11 +74,11 @@ namespace Cake.Gradle.Tests
         [Fact]
         public void Run_WithGradleNotPresent_AndNoWorkingDirectory_Throws()
         {
-            fixture.GivenGradleDoesNotExist();
+            _fixture.GivenGradleDoesNotExist();
 
             Action result = () =>
             {
-                fixture.Run();
+                _fixture.Run();
             };
 
             result.ShouldThrow<CakeException>().Message.ShouldContain("Could not locate executable.");
@@ -82,7 +91,7 @@ namespace Cake.Gradle.Tests
 
             Action result = () =>
             {
-                fixture.FromPath(nonExitingDir).Run();
+                _fixture.FromPath(nonExitingDir).Run();
             };
 
             result.ShouldThrow<System.IO.DirectoryNotFoundException>();
@@ -91,14 +100,55 @@ namespace Cake.Gradle.Tests
         [Fact]
         public void Run_WithGradleNotPresent_ButGradleWInWorkingDirectory_RunsGradleW()
         {
-            var workDir = fixture.FileSystem.CreateDirectory("/project");
-            var expected = workDir.Path.CombineWithFilePath(new FilePath("gradlew")).FullPath; // or gradleW.bat
-            fixture.GivenGradleDoesNotExist();
-            fixture.GivenGradleWExistIn(workDir.Path);
+            var workDir = _fixture.FileSystem.CreateDirectory("/project");
+            var expected = workDir.Path.CombineWithFilePath(new FilePath("gradlew")).FullPath;
+            _fixture.GivenGradleDoesNotExist();
+            _fixture.GivenGradleWExistIn(workDir.Path);
 
-            var result = fixture.FromPath(workDir.Path).Run();
+            var result = _fixture.FromPath(workDir.Path).Run();
 
-            result.Path.FullPath.ShouldStartWith(expected); // ShouldStartWith() - to capture gradleW.bat, too.
+            result.Path.FullPath.ShouldBe(expected);
+        }
+
+        [Fact]
+        public void Run_OnWindows_WithGradleNotPresent_ButGradleWInWorkingDirectory_RunsGradleWBat()
+        {
+            var workDir = _fixture.FileSystem.CreateDirectory("C:\\project");
+            var expected = workDir.Path.CombineWithFilePath(new FilePath("gradlew.bat")).FullPath;
+            _fixture.GivenAWindowsEnvironment();
+            _fixture.GivenGradleDoesNotExist();
+            _fixture.GivenGradleWExistIn(workDir.Path);
+
+            var result = _fixture.FromPath(workDir.Path).Run();
+
+            result.Path.FullPath.ShouldBe(expected);
+        }
+
+        [Fact]
+        public void Run_OnWindows_WithGradleNotPresent_ButGradleExePresent_RunsGradleExe()
+        {
+            _fixture.GivenAWindowsEnvironment();
+            _fixture.GivenGradleDoesNotExist();
+            _fixture.GivenGradleExeExistsAsADefaultTool();
+
+            var result = _fixture.Run();
+
+            result.Path.GetFilename().FullPath.ShouldBe("gradle.exe");
+        }
+
+        [Theory]
+        [InlineData(Verbosity.Diagnostic, "--debug")]
+        [InlineData(Verbosity.Minimal, "")]
+        [InlineData(Verbosity.Normal, "")]
+        [InlineData(Verbosity.Quiet, "--quiet")]
+        [InlineData(Verbosity.Verbose, "--info")]
+        public void Run_WithCakeVerbosity_Appends_Corresponding_LogLevel(Verbosity verbosity, string expected)
+        {
+            var fixture = new GradleRunnerFixture(verbosity);
+
+            var result = fixture.Run();
+
+            result.Args.ShouldBe(expected);
         }
     }
 }

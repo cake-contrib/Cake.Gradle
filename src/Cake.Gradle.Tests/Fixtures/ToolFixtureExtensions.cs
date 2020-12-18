@@ -1,11 +1,12 @@
 ﻿using System;
 
+using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 using Cake.Testing;
 using Cake.Testing.Fixtures;
 
-namespace Cake.Gradle.Tests
+namespace Cake.Gradle.Tests.Fixtures
 {
     /// <summary>
     /// Contains extension methods for <see cref="ToolFixture{TToolSettings}"/>.
@@ -58,16 +59,39 @@ namespace Cake.Gradle.Tests
                 throw new ArgumentNullException(nameof(workDir));
             }
 
-
-            foreach (string tool in new[]{ "gradlew", "gradlew.bat" })
+            var tool = fixture.Environment.Platform.Family == PlatformFamily.Windows ? "gradlew.bat" : "gradlew";
+            var file = fixture.FileSystem.GetFile(
+                workDir.CombineWithFilePath(new FilePath(tool)));
+            if (!file.Exists)
             {
-                var file = fixture.FileSystem.GetFile(
-                    workDir.CombineWithFilePath(new FilePath(tool)));
-                if (!file.Exists)
-                {
-                    fixture.FileSystem.CreateFile(file.Path);
-                }
+                fixture.FileSystem.CreateFile(file.Path);
             }
+        }
+
+        /// <summary>
+        /// Ensures that gradle.exe exist as a tool
+        /// </summary>
+        /// <typeparam name="TToolSettings">The type of the tool settings.</typeparam>
+        /// <typeparam name="TFixtureResult">The type of the fixture result.</typeparam>
+        /// <param name="fixture">The fixture.</param>
+        public static void GivenGradleExeExistsAsADefaultTool<TToolSettings, TFixtureResult>(
+            this ToolFixture<TToolSettings, TFixtureResult> fixture)
+            where TToolSettings : ToolSettings, new()
+            where TFixtureResult : ToolFixtureResult
+        {
+            if (fixture == null)
+            {
+                throw new ArgumentNullException(nameof(fixture));
+            }
+
+            var defaultToolDir = fixture.DefaultToolPath.GetDirectory();
+            var gradleExe = defaultToolDir.CombineWithFilePath(new FilePath("gradle.exe"));
+            var file = fixture.FileSystem.GetFile(gradleExe.FullPath);
+            if (!file.Exists)
+            {
+                fixture.FileSystem.CreateFile(file.Path);
+            }
+            fixture.Tools.RegisterFile(file.Path);
         }
     }
 }
