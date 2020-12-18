@@ -1,0 +1,24 @@
+
+@*
+<div class="navbar-right navbar-form">
+    <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off" autofocus>
+</div>
+*@
+
+@{
+    string apiUrl = Context.GetLink("api/Cake.Gradle/");
+    string apiActive = Context.GetLink(Document).StartsWith(apiUrl) ? "active" : null;
+    <li class="@apiActive"><a href="@apiUrl">api</a></li>
+
+    /*
+    List<Tuple<string, string>> pages = new List<Tuple<string, string>>
+    {
+        Tuple.Create("Documentation", Context.GetLink("docs")),
+    };
+    foreach(Tuple<string, string> p in pages)
+    {
+        string active = Context.GetLink(Document).StartsWith(p.Item2) ? "active" : null;
+        <li class="@active"><a href="@p.Item2">@Html.Raw(p.Item1)</a></li>
+    }
+    */
+}
