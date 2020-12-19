@@ -45,7 +45,7 @@ var searchModule = function() {
             tags:''
         },
         {
-            url:'/cake.gradle/api/Cake.Gradle/GradleRunnerAlias',
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
             title:"GradleRunnerAlias",
             description:""
         }
@@ -53,42 +53,42 @@ var searchModule = function() {
     a(
         {
             id:1,
-            title:"GradleLogLevel",
-            content:"GradleLogLevel",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/cake.gradle/api/Cake.Gradle/GradleLogLevel',
-            title:"GradleLogLevel",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
-            title:"GradleRunner",
-            content:"GradleRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/cake.gradle/api/Cake.Gradle/GradleRunner',
-            title:"GradleRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"GradleRunnerSettings",
             content:"GradleRunnerSettings",
             description:'',
             tags:''
         },
         {
-            url:'/cake.gradle/api/Cake.Gradle/GradleRunnerSettings',
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
             title:"GradleRunnerSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
+            title:"GradleLogLevel",
+            content:"GradleLogLevel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
+            title:"GradleLogLevel",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"GradleRunner",
+            content:"GradleRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
+            title:"GradleRunner",
             description:""
         }
     );

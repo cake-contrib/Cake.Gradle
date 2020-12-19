@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<id>http://cake-contrib.github.io/cake.gradle</id>
+	<id>http://cake-contrib.github.io/Cake.Gradle</id>
 	<title>Cake.Gradle</title>
-	<link rel="self" href="http://cake-contrib.github.io/cake.gradle" />
+	<link rel="self" href="http://cake-contrib.github.io/Cake.Gradle" />
 	<rights>2020</rights>
-	<updated>2020-12-18T23:36:22Z</updated>
+	<updated>2020-12-19T08:36:33Z</updated>
 </feed>
