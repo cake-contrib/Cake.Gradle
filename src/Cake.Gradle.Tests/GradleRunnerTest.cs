@@ -3,6 +3,7 @@
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
+using Cake.Gradle.Tests.FactAttributes;
 using Cake.Gradle.Tests.Fixtures;
 using Cake.Testing;
 
@@ -110,7 +111,7 @@ namespace Cake.Gradle.Tests
             result.Path.FullPath.ShouldBe(expected);
         }
 
-        [Fact]
+        [FactOnWindows]
         public void Run_OnWindows_WithGradleNotPresent_ButGradleWInWorkingDirectory_RunsGradleWBat()
         {
             var workDir = _fixture.FileSystem.CreateDirectory("C:\\project");
@@ -124,7 +125,7 @@ namespace Cake.Gradle.Tests
             result.Path.FullPath.ShouldBe(expected);
         }
 
-        [Fact]
+        [FactOnWindows]
         public void Run_OnWindows_WithGradleNotPresent_ButGradleExePresent_RunsGradleExe()
         {
             _fixture.GivenAWindowsEnvironment();
