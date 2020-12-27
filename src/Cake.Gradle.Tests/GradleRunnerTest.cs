@@ -151,5 +151,16 @@ namespace Cake.Gradle.Tests
 
             result.Args.ShouldBe(expected);
         }
+
+        [Fact]
+        public void Run_WithArguments_CalledTwice_CreatesBothArguments()
+        {
+            var result = _fixture
+                .WithArguments("foo")
+                .WithArguments("bar")
+                .Run();
+
+            result.Args.ShouldBe("foo bar");
+        }
     }
 }

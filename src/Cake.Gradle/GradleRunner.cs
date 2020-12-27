@@ -16,12 +16,13 @@ namespace Cake.Gradle
     {
         private const string TasksSeparator = " ";
 
+        private readonly List<string> _arguments = new List<string>();
+
         private readonly Verbosity _cakeVerbosityLevel;
         private readonly IFileSystem _fileSystem;
         private readonly ICakeEnvironment _environment;
         private GradleLogLevel? _logLevel;
         private string _tasks = string.Empty;
-        private string _arguments = string.Empty;
         private DirectoryPath _workingDirectoryPath;
 
         /// <summary>
@@ -103,9 +104,9 @@ namespace Cake.Gradle
         /// </summary>
         /// <param name="arguments">arguments.</param>
         /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
-        public GradleRunner WithArguments(string arguments)
+        public GradleRunner WithArguments(params string[] arguments)
         {
-            _arguments = arguments;
+            _arguments.AddRange(arguments);
             return this;
         }
 
@@ -194,9 +195,9 @@ namespace Cake.Gradle
 
             AppendLogLevel(args);
 
-            if (!string.IsNullOrWhiteSpace(_arguments))
+            foreach (var arg in _arguments)
             {
-                args.Append(_arguments.Trim());
+                args.Append(arg.Trim());
             }
 
             if (!string.IsNullOrWhiteSpace(_tasks))
