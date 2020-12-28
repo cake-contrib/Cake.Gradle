@@ -39,20 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"GradleRunnerAlias",
-            content:"GradleRunnerAlias",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
-            title:"GradleRunnerAlias",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
             title:"GradleRunner",
             content:"GradleRunner",
             description:'',
@@ -66,21 +52,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:2,
-            title:"GradleLogLevel",
-            content:"GradleLogLevel",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
-            title:"GradleLogLevel",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
+            id:1,
             title:"GradleRunnerSettings",
             content:"GradleRunnerSettings",
             description:'',
@@ -89,6 +61,34 @@ var searchModule = function() {
         {
             url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
             title:"GradleRunnerSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
+            title:"GradleRunnerAlias",
+            content:"GradleRunnerAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
+            title:"GradleRunnerAlias",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"GradleLogLevel",
+            content:"GradleLogLevel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
+            title:"GradleLogLevel",
             description:""
         }
     );
