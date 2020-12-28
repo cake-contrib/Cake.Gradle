@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Gradle/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Gradle/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Gradle - API - GradleRunner.WithTask(string) Method</title>
+        <title>Cake.Gradle - API - GradleRunner.WithSystemProperty(string, string, bool) Method</title>
         <link href="/Cake.Gradle/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Gradle/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Gradle/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -151,8 +151,8 @@
 				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/14D29CA6">WithArguments<wbr>(string[])<wbr></a></li>
 				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/DDE0DB72">WithLogLevel<wbr>(GradleLogLevel)<wbr></a></li>
 				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/3BEF272D">WithProjectProperty<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/8CF38765">WithSystemProperty<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li class="selected"><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/32A063FE">WithTask<wbr>(string)<wbr></a></li>
+				<li class="selected"><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/8CF38765">WithSystemProperty<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></li>
+				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/32A063FE">WithTask<wbr>(string)<wbr></a></li>
 				<li><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner/4E1CAD60">WithTask<wbr>(string[])<wbr></a></li>
 
 
@@ -169,14 +169,14 @@
 
 <section class="content-header">
 			<h3><a href="/Cake.Gradle/api/Cake.Gradle/GradleRunner">GradleRunner</a>.</h3>
-	<h1>WithTask<wbr>(string)<wbr> <small>Method</small></h1>
+	<h1>WithSystemProperty<wbr>(string, <wbr>string, <wbr>bool)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Specifies a Gradle task to be run.
+    Adds a system-property to the arguments.
     </div>
 
 		<div class="panel panel-default">
@@ -194,7 +194,7 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public GradleRunner WithTask(string task)</code></pre>
+	<pre><code>public GradleRunner WithSystemProperty(string key, string value, bool secretValue = false)</code></pre>
 
 
 
@@ -212,9 +212,19 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>task</td>
+						<td>key</td>
 						<td>string</td>
-						<td>task name.</td>
+						<td>The key to set.</td>
+					</tr>
+					<tr>
+						<td>value</td>
+						<td>string</td>
+						<td>The value to set.</td>
+					</tr>
+					<tr>
+						<td>secretValue</td>
+						<td>bool</td>
+						<td>Set to <code class="cs">true</code>, if value is secret and should not show in logs.</td>
 					</tr>
 			</tbody></table>
 		</div>
