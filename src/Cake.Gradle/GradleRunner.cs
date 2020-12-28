@@ -16,12 +16,14 @@ namespace Cake.Gradle
     {
         private const string TasksSeparator = " ";
 
+        private readonly List<string> _arguments = new List<string>();
+        private readonly List<GradleProperty> _properties = new List<GradleProperty>();
+
         private readonly Verbosity _cakeVerbosityLevel;
         private readonly IFileSystem _fileSystem;
         private readonly ICakeEnvironment _environment;
         private GradleLogLevel? _logLevel;
         private string _tasks = string.Empty;
-        private string _arguments = string.Empty;
         private DirectoryPath _workingDirectoryPath;
 
         /// <summary>
@@ -103,9 +105,49 @@ namespace Cake.Gradle
         /// </summary>
         /// <param name="arguments">arguments.</param>
         /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
-        public GradleRunner WithArguments(string arguments)
+        public GradleRunner WithArguments(params string[] arguments)
         {
-            _arguments = arguments;
+            _arguments.AddRange(arguments);
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a project property to the arguments.
+        /// </summary>
+        /// <param name="key">The key to set.</param>
+        /// <param name="value">The value to set.</param>
+        /// <param name="secretValue">Set to <c>true</c>, if value is secret and should not show in logs.</param>
+        /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
+        public GradleRunner WithProjectProperty(string key, string value, bool secretValue = false)
+        {
+            _properties.Add(new GradleProperty
+            {
+                PropertyType = GradleProperty.Type.Project,
+                Key = key,
+                Value = value,
+                SecretValue = secretValue,
+            });
+
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a system-property to the arguments.
+        /// </summary>
+        /// <param name="key">The key to set.</param>
+        /// <param name="value">The value to set.</param>
+        /// <param name="secretValue">Set to <c>true</c>, if value is secret and should not show in logs.</param>
+        /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
+        public GradleRunner WithSystemProperty(string key, string value, bool secretValue = false)
+        {
+            _properties.Add(new GradleProperty
+            {
+                PropertyType = GradleProperty.Type.System,
+                Key = key,
+                Value = value,
+                SecretValue = secretValue,
+            });
+
             return this;
         }
 
@@ -194,9 +236,24 @@ namespace Cake.Gradle
 
             AppendLogLevel(args);
 
-            if (!string.IsNullOrWhiteSpace(_arguments))
+            foreach (var property in _properties)
             {
-                args.Append(_arguments.Trim());
+                var prefix = property.PropertyType == GradleProperty.Type.System ? "-D" : "-P";
+                var key = prefix + property.Key;
+
+                if (property.SecretValue)
+                {
+                    args.AppendSwitchQuotedSecret(key, "=", property.Value);
+                }
+                else
+                {
+                    args.AppendSwitchQuoted(key, "=", property.Value);
+                }
+            }
+
+            foreach (var arg in _arguments)
+            {
+                args.Append(arg.Trim());
             }
 
             if (!string.IsNullOrWhiteSpace(_tasks))
