@@ -162,5 +162,25 @@ namespace Cake.Gradle.Tests
 
             result.Args.ShouldBe("foo bar");
         }
+
+        [Fact]
+        public void Run_WithProjectPropertySet_CreatesThePropertyAsAnArgument()
+        {
+            var result = _fixture
+                .WithProjectProperty("pluginVersion", "3.2.1", false)
+                .Run();
+
+            result.Args.ShouldBe("-PpluginVersion=\"3.2.1\"");
+        }
+
+        [Fact]
+        public void Run_WithSystemPropertySet_CreatesThePropertyAsAnArgument()
+        {
+            var result = _fixture
+                .WithSystemProperty("org.gradle.project.intellijPublishToken", "YOUR_HUB_TOKEN_HERE", true)
+                .Run();
+
+            result.Args.ShouldBe("-Dorg.gradle.project.intellijPublishToken=\"YOUR_HUB_TOKEN_HERE\"");
+        }
     }
 }

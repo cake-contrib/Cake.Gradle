@@ -17,6 +17,7 @@ namespace Cake.Gradle
         private const string TasksSeparator = " ";
 
         private readonly List<string> _arguments = new List<string>();
+        private readonly List<GradleProperty> _properties = new List<GradleProperty>();
 
         private readonly Verbosity _cakeVerbosityLevel;
         private readonly IFileSystem _fileSystem;
@@ -111,6 +112,46 @@ namespace Cake.Gradle
         }
 
         /// <summary>
+        /// Adds a project property to the arguments.
+        /// </summary>
+        /// <param name="key">The key to set.</param>
+        /// <param name="value">The value to set.</param>
+        /// <param name="secretValue">Set to <c>true</c>, if value is secret and should not show in logs.</param>
+        /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
+        public GradleRunner WithProjectProperty(string key, string value, bool secretValue = false)
+        {
+            _properties.Add(new GradleProperty
+            {
+                PropertyType = GradleProperty.Type.Project,
+                Key = key,
+                Value = value,
+                SecretValue = secretValue,
+            });
+
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a system-property to the arguments.
+        /// </summary>
+        /// <param name="key">The key to set.</param>
+        /// <param name="value">The value to set.</param>
+        /// <param name="secretValue">Set to <c>true</c>, if value is secret and should not show in logs.</param>
+        /// <returns>The <c>GradleRunner</c> for fluent re-use.</returns>
+        public GradleRunner WithSystemProperty(string key, string value, bool secretValue = false)
+        {
+            _properties.Add(new GradleProperty
+            {
+                PropertyType = GradleProperty.Type.System,
+                Key = key,
+                Value = value,
+                SecretValue = secretValue,
+            });
+
+            return this;
+        }
+
+        /// <summary>
         /// Specifies the path the Gradle project resides in.
         /// </summary>
         /// <param name="path">The path to the Gradle project.</param>
@@ -194,6 +235,21 @@ namespace Cake.Gradle
             var args = new ProcessArgumentBuilder();
 
             AppendLogLevel(args);
+
+            foreach (var property in _properties)
+            {
+                var prefix = property.PropertyType == GradleProperty.Type.System ? "-D" : "-P";
+                var key = prefix + property.Key;
+
+                if (property.SecretValue)
+                {
+                    args.AppendSwitchQuotedSecret(key, "=", property.Value);
+                }
+                else
+                {
+                    args.AppendSwitchQuoted(key, "=", property.Value);
+                }
+            }
 
             foreach (var arg in _arguments)
             {

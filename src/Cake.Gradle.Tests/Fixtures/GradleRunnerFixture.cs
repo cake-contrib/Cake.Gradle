@@ -48,6 +48,18 @@ namespace Cake.Gradle.Tests.Fixtures
             return this;
         }
 
+        public GradleRunnerFixture WithProjectProperty(string key, string val, bool secret)
+        {
+            _tool = _tool.WithProjectProperty(key, val, secret);
+            return this;
+        }
+
+        public GradleRunnerFixture WithSystemProperty(string key, string val, bool secret)
+        {
+            _tool = _tool.WithSystemProperty(key, val, secret);
+            return this;
+        }
+
         public GradleRunnerFixture FromPath(DirectoryPath path)
         {
             _tool = _tool.FromPath(path);
