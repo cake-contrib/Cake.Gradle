@@ -53,6 +53,20 @@ var searchModule = function() {
     a(
         {
             id:1,
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
             title:"GradleLogLevel",
             content:"GradleLogLevel",
             description:'',
@@ -66,7 +80,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:2,
+            id:3,
             title:"GradleRunner",
             content:"GradleRunner",
             description:'',
@@ -75,20 +89,6 @@ var searchModule = function() {
         {
             url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
             title:"GradleRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
             description:""
         }
     );
