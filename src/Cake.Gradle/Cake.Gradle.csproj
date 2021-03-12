@@ -24,14 +24,14 @@
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/cake-contrib/Cake.Gradle</PackageProjectUrl>
-        <PackageTags>cake;addin;gradle;script;build</PackageTags>
+        <PackageTags>cake;build;cake-build;addin;script;cake-addin;cake-contrib;gradle</PackageTags>
         <RepositoryUrl>https://github.com/cake-contrib/Cake.Gradle.git</RepositoryUrl>
         <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Gradle/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
-        <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.1">
+        <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.3">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -39,7 +39,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="IDisposableAnalyzers" Version="3.4.8">
+        <PackageReference Include="IDisposableAnalyzers" Version="3.4.13">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
