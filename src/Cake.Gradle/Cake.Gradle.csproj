@@ -24,7 +24,7 @@
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/cake-contrib/Cake.Gradle</PackageProjectUrl>
-        <PackageTags>cake;addin;gradle;script;build</PackageTags>
+        <PackageTags>cake;build;cake-build;addin;script;cake-addin;cake-contrib;gradle</PackageTags>
         <RepositoryUrl>https://github.com/cake-contrib/Cake.Gradle.git</RepositoryUrl>
         <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Gradle/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
