@@ -14,7 +14,14 @@ BuildParameters.SetParameters(
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context);
+ToolSettings.SetToolSettings(
+    context: Context,
+    dupFinderExcludePattern: new string[] {
+        MakeAbsolute(BuildParameters.SolutionDirectoryPath.CombineWithFilePath("LitJson/*.cs")).FullPath,
+        MakeAbsolute(BuildParameters.SolutionDirectoryPath.CombineWithFilePath("**/*.AssemblyInfo.cs")).FullPath,
+        MakeAbsolute(BuildParameters.SourceDirectoryPath.CombineWithFilePath("Cake.Gradle.Tests/**/*.cs")).FullPath
+    },
+    testCoverageFilter: $"+[{BuildParameters.Title}*]* -[*.Tests]* -[{BuildParameters.Title}]LitJson.* -[{BuildParameters.Title}]Cake.Gradle.Abstractions.*");
 
 Build.RunDotNetCore();
 

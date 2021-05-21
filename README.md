@@ -19,6 +19,7 @@ Aliases to assist with running Gradle builds from Cake build scripts.
 - [Contributing](#contributing)
   - [Contributors](#contributors)
 - [License](#license)
+  - [LitJson](#litjson)
 
 ## Install
 
@@ -117,6 +118,12 @@ Thanks goes to these wonderful people ([emoji key][emoji-key]):
 ## License
 
 [MIT License © Christian Abegg, Nils Andresen][license]
+
+Cake.Gradle includes third-party code which is licensed under its own respective license.
+
+### LitJSON
+
+License: Unlicense, https://github.com/LitJSON/litjson/blob/develop/COPYING
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributors-badge]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square

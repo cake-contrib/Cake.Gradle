@@ -6,6 +6,9 @@
 Task("Gradle-Example")
     .Does(() =>
     {
+        // Bootstrap a local gradle into tools folder
+        BootstrapCurrentGradle();
+
         // Run 'gradle --version'
         // run this, in example folder too. So the "test" does not break when gradle is not installed globally.
         Gradle.FromPath("./example").WithArguments("--version").Run();

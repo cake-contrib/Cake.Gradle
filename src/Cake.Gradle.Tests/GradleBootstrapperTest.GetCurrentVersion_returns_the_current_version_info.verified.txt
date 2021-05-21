@@ -1,0 +1,4 @@
+{
+  Version: 7.0.2,
+  DownloadUrl: https://services.gradle.org/distributions/gradle-7.0.2-bin.zip
+}
