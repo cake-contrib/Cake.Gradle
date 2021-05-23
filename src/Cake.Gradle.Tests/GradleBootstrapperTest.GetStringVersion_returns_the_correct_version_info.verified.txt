@@ -1,0 +1,4 @@
+{
+  Version: 6.9-rc-2,
+  DownloadUrl: https://services.gradle.org/distributions/gradle-6.9-rc-2-bin.zip
+}

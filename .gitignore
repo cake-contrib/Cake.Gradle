@@ -54,3 +54,4 @@ config.wyam.*
 
 .idea/
 .history/
+**.received.*

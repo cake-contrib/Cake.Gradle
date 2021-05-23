@@ -1,0 +1,4 @@
+{
+  Version: 7.1-20210519220049+0000,
+  DownloadUrl: https://services.gradle.org/distributions-snapshots/gradle-7.1-20210519220049+0000-bin.zip
+}
