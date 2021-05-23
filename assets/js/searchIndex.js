@@ -39,160 +39,20 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
+            title:"IZipAdapter",
+            content:"IZipAdapter",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
+            title:"IZipAdapter",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"JsonException",
-            content:"JsonException",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonException',
-            title:"JsonException",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
-            title:"ImporterFunc",
-            content:"ImporterFunc",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/ImporterFunc_2',
-            title:"ImporterFunc<TJson, TValue>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
-            title:"GradleRunner",
-            content:"GradleRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
-            title:"GradleRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:4,
-            title:"GradleLogLevel",
-            content:"GradleLogLevel",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
-            title:"GradleLogLevel",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"JsonWriter",
-            content:"JsonWriter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonWriter',
-            title:"JsonWriter",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"JsonType",
-            content:"JsonType",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonType',
-            title:"JsonType",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
-            title:"JsonToken",
-            content:"JsonToken",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonToken',
-            title:"JsonToken",
-            description:""
-        }
-    );
-    a(
-        {
-            id:8,
-            title:"JsonMockWrapper",
-            content:"JsonMockWrapper",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonMockWrapper',
-            title:"JsonMockWrapper",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
-            title:"JsonData",
-            content:"JsonData",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonData',
-            title:"JsonData",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"GradleRunnerAlias",
-            content:"GradleRunnerAlias",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
-            title:"GradleRunnerAlias",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
             title:"GradleDownloadInformation",
             content:"GradleDownloadInformation",
             description:'',
@@ -206,77 +66,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:12,
-            title:"WrapperFactory",
-            content:"WrapperFactory",
+            id:2,
+            title:"JsonData",
+            content:"JsonData",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/LitJson/WrapperFactory',
-            title:"WrapperFactory",
+            url:'/Cake.Gradle/api/LitJson/JsonData',
+            title:"JsonData",
             description:""
         }
     );
     a(
         {
-            id:13,
-            title:"GradleBootstrapper",
-            content:"GradleBootstrapper",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleBootstrapper',
-            title:"GradleBootstrapper",
-            description:""
-        }
-    );
-    a(
-        {
-            id:14,
-            title:"GradleBootstrapAlias",
-            content:"GradleBootstrapAlias",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
-            title:"GradleBootstrapAlias",
-            description:""
-        }
-    );
-    a(
-        {
-            id:15,
-            title:"IWebAdapter",
-            content:"IWebAdapter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IWebAdapter',
-            title:"IWebAdapter",
-            description:""
-        }
-    );
-    a(
-        {
-            id:16,
-            title:"JsonMapper",
-            content:"JsonMapper",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/LitJson/JsonMapper',
-            title:"JsonMapper",
-            description:""
-        }
-    );
-    a(
-        {
-            id:17,
+            id:3,
             title:"JsonReader",
             content:"JsonReader",
             description:'',
@@ -290,7 +94,35 @@ var searchModule = function() {
     );
     a(
         {
-            id:18,
+            id:4,
+            title:"GradleBootstrapAlias",
+            content:"GradleBootstrapAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
+            title:"GradleBootstrapAlias",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"GradleRunnerAlias",
+            content:"GradleRunnerAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
+            title:"GradleRunnerAlias",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
             title:"GradleVersionIdentifier",
             content:"GradleVersionIdentifier",
             description:'',
@@ -304,21 +136,49 @@ var searchModule = function() {
     );
     a(
         {
-            id:19,
-            title:"IJsonWrapper",
-            content:"IJsonWrapper",
+            id:7,
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/LitJson/IJsonWrapper',
-            title:"IJsonWrapper",
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
             description:""
         }
     );
     a(
         {
-            id:20,
+            id:8,
+            title:"JsonMapper",
+            content:"JsonMapper",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/JsonMapper',
+            title:"JsonMapper",
+            description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"GradleLogLevel",
+            content:"GradleLogLevel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
+            title:"GradleLogLevel",
+            description:""
+        }
+    );
+    a(
+        {
+            id:10,
             title:"ExporterFunc",
             content:"ExporterFunc",
             description:'',
@@ -332,15 +192,155 @@ var searchModule = function() {
     );
     a(
         {
-            id:21,
-            title:"IZipAdapter",
-            content:"IZipAdapter",
+            id:11,
+            title:"JsonMockWrapper",
+            content:"JsonMockWrapper",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
-            title:"IZipAdapter",
+            url:'/Cake.Gradle/api/LitJson/JsonMockWrapper',
+            title:"JsonMockWrapper",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"GradleRunner",
+            content:"GradleRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
+            title:"GradleRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"ImporterFunc",
+            content:"ImporterFunc",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/ImporterFunc_2',
+            title:"ImporterFunc<TJson, TValue>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:14,
+            title:"JsonException",
+            content:"JsonException",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/JsonException',
+            title:"JsonException",
+            description:""
+        }
+    );
+    a(
+        {
+            id:15,
+            title:"WrapperFactory",
+            content:"WrapperFactory",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/WrapperFactory',
+            title:"WrapperFactory",
+            description:""
+        }
+    );
+    a(
+        {
+            id:16,
+            title:"GradleBootstrapper",
+            content:"GradleBootstrapper",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleBootstrapper',
+            title:"GradleBootstrapper",
+            description:""
+        }
+    );
+    a(
+        {
+            id:17,
+            title:"IWebAdapter",
+            content:"IWebAdapter",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IWebAdapter',
+            title:"IWebAdapter",
+            description:""
+        }
+    );
+    a(
+        {
+            id:18,
+            title:"IJsonWrapper",
+            content:"IJsonWrapper",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/IJsonWrapper',
+            title:"IJsonWrapper",
+            description:""
+        }
+    );
+    a(
+        {
+            id:19,
+            title:"JsonToken",
+            content:"JsonToken",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/JsonToken',
+            title:"JsonToken",
+            description:""
+        }
+    );
+    a(
+        {
+            id:20,
+            title:"JsonType",
+            content:"JsonType",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/JsonType',
+            title:"JsonType",
+            description:""
+        }
+    );
+    a(
+        {
+            id:21,
+            title:"JsonWriter",
+            content:"JsonWriter",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/LitJson/JsonWriter',
+            title:"JsonWriter",
             description:""
         }
     );
