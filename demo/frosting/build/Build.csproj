@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Cake.Gradle, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\src\Cake.Gradle\bin\Release\netstandard2.0\Cake.Gradle.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
