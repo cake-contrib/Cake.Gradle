@@ -125,37 +125,76 @@
             <pre><code>
 #addin nuget:?package=Cake.Gradle
 
-// Run 'gradle --version'
-Task("Gradle-Version")
+Task("Gradle-Example")
     .Does(() =>
-{
-    Gradle.WithArguments("--version").Run();
-});
+    {
+        // Bootstrap a local gradle into tools folder
+        BootstrapGradle("7.0.2");
 
-// Run 'gradle hello' in a specific folder
-// Note: if you have a gradle wrapper setup in the specified path, this one will be used
-Task("Gradle-Hello")
-    .Does(() =>
-{
-    Gradle.FromPath("./example").WithTask("hello").Run();
-});
-
-
-// Run 'gradle hello' in a specific folder with default log level
-// Note: if no log level is set, it is derived from the Cake verbosity (which is set to 'verbose' in build.ps1)
-Task("Gradle-Hello-WithDefaultLogLevel")
-    .Does(() =>
-{
-    Gradle.FromPath("./example").WithTask("hello").WithLogLevel(GradleLogLevel.Default).Run(); 
-});
-
-// Run 'gradle --offline --build-file build.gradle hello' in a specific folder
-Task("Gradle-Hello-WithArguments")
-    .Does(() =>
-{
-    Gradle.FromPath("./example").WithTask("hello").WithArguments("--offline --build-file build.gradle").Run();
-});
+        // Run 'gradle --version'
+        // run this, in example folder too. So the "test" does not break when gradle is not installed globally.
+        Gradle.FromPath("./example").WithArguments("--version").Run();
+        
+        // Run 'gradle hello' in a specific folder
+        // Note: if you have a gradle wrapper setup in the specified path, this one will be used
+        Gradle.FromPath("./example").WithTask("hello").Run();
+        
+        // Run 'gradle hello' in a specific folder with default log level
+        // Note: if no log level is set, it is derived from the Cake verbosity (which is set to 'verbose' in build.ps1)
+        Gradle.FromPath("./example").WithTask("hello").WithLogLevel(GradleLogLevel.Default).Run(); 
+        
+        // Run 'gradle --offline --build-file build.gradle hello' in a specific folder
+        Gradle.FromPath("./example").WithTask("hello").WithArguments("--offline --build-file build.gradle").Run();
+    });
             </code></pre>
+        </div>
+                <div class="col-sm-12">
+            <span class="glyphicon glyphicon-road logo-small"></span>
+            <h3 class="no-anchor">Frosting Usage</h3>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 text-left">
+            <pre><code>
+[TaskName("Gradle-Example")]
+public sealed class GradleExampleTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        // Bootstrap a local gradle into tools folder
+        context.BootstrapGradle("7.0.2");
+
+        // Run 'gradle --version'
+        // run this, in example folder too. So the "test" does not break when gradle is not installed globally.
+        context
+            .Gradle()
+            .FromPath("../example")
+            .WithArguments("--version")
+            .Run();
+
+        // Run 'gradle hello' in a specific folder
+        // Note: if you have a gradle wrapper setup in the specified path, this one will be used
+        context
+            .Gradle()
+            .FromPath("../example")
+            .WithTask("hello")
+            .Run();
+
+        // Run 'gradle hello' in a specific folder with default log level
+        // Note: if no log level is set, it is derived from the Cake verbosity (which is set to 'verbose' in build.ps1)
+        context
+            .Gradle()
+            .FromPath("../example")
+            .WithTask("hello")
+            .WithLogLevel(GradleLogLevel.Default).Run();
+
+        // Run 'gradle --offline --build-file build.gradle hello' in a specific folder
+        context
+            .Gradle()
+            .FromPath("../example")
+            .WithTask("hello")
+            .WithArguments("--offline --build-file build.gradle")
+            .Run();
+    }
+}            </code></pre>
         </div>
     </div>
 </div>                
