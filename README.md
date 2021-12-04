@@ -1,7 +1,7 @@
 # Cake.Gradle
 
 [![standard-readme compliant][]][standard-readme]
-[![Appveyor build][appveyorimage]][appveyor]
+[![Build][buildimage]][build]
 [![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
 [![All Contributors][all-contributors-badge]](#contributors)
@@ -134,8 +134,8 @@ License: Unlicense, https://github.com/LitJSON/litjson/blob/develop/COPYING
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributors-badge]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
-[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-gradle
-[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-gradle.svg?logo=appveyor&style=flat-square
+[build]: https://github.com/cake-contrib/Cake.Gradle/actions/workflows/build.yml
+[buildimage]: https://github.com/cake-contrib/Cake.Gradle/actions/workflows/build.yml/badge.svg
 [codecov]: https://codecov.io/gh/cake-contrib/cake.gradle
 [codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/cake.gradle.svg?logo=codecov&style=flat-square
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
