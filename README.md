@@ -1,7 +1,7 @@
 # Cake.Gradle
 
 [![standard-readme compliant][]][standard-readme]
-[![Appveyor build][appveyorimage]][appveyor]
+[![Build][buildimage]][build]
 [![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
 [![All Contributors][all-contributors-badge]](#contributors)
@@ -15,6 +15,7 @@ Aliases to assist with running Gradle builds from Cake build scripts.
 - [Compatibility](#compatibility)
 - [Motivation](#motivation)
 - [A Word of caution](#a-word-of-caution)
+- [Discussion](#Discussion)
 - [Maintainer](#maintainer)
 - [Contributing](#contributing)
   - [Contributors](#contributors)
@@ -81,6 +82,12 @@ Works similar to the [cake-gulp](https://github.com/Philo/cake-gulp) addin.
 Cake and Gradle are both task runners. I consider it bad practice to call one task runner out of another. 
 It would be better to only have one tool per concern (i.e. task running) - but sometimes this is not feasible.
 
+## Discussion
+
+For questions and to discuss ideas & feature requests, use the [GitHub discussions on the Cake GitHub repository](https://github.com/cake-build/cake/discussions), under the [Extension Q&A](https://github.com/cake-build/cake/discussions/categories/extension-q-a) category.
+
+[![Join in the discussion on the Cake repository](https://img.shields.io/badge/GitHub-Discussions-green?logo=github)](https://github.com/cake-build/cake/discussions)
+
 ## Maintainer
 
 [Nils Andresen @nils-a][maintainer]
@@ -127,8 +134,8 @@ License: Unlicense, https://github.com/LitJSON/litjson/blob/develop/COPYING
 
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributors-badge]: https://img.shields.io/github/all-contributors/cake-contrib/cake.gradle.svg?color=orange&style=flat-square
-[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-gradle
-[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-gradle.svg?logo=appveyor&style=flat-square
+[build]: https://github.com/cake-contrib/Cake.Gradle/actions/workflows/build.yml
+[buildimage]: https://github.com/cake-contrib/Cake.Gradle/actions/workflows/build.yml/badge.svg
 [codecov]: https://codecov.io/gh/cake-contrib/cake.gradle
 [codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/cake.gradle.svg?logo=codecov&style=flat-square
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
