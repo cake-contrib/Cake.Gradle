@@ -1,4 +1,4 @@
-#l nuget:?package=Cake.Recipe&version=2.2.1
+#l nuget:?package=Cake.Recipe&version=3.0.1
 
 // Workaround for https://github.com/cake-contrib/Cake.Recipe/issues/854
 #tool nuget:?package=NuGet.CommandLine&version=5.8.1
