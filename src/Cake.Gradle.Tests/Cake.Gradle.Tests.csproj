@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+        <TargetFrameworks Condition="false">netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>net6.0;net7.0;</TargetFrameworks>
         <NoWarn>$(NoWarn);CS1591;SA1600</NoWarn>
 
         <IsPackable>false</IsPackable>
@@ -9,19 +10,19 @@
 
     <ItemGroup>
         <PackageReference Include="AutoFixture.AutoMoq" Version="4.17.0" />
-        <PackageReference Include="Cake.Common" Version="2.0.0" />
-        <PackageReference Include="Cake.Testing" Version="2.3.0" />
+        <PackageReference Include="Cake.Common" Version="3.0.0" />
+        <PackageReference Include="Cake.Testing" Version="3.0.0" />
         <PackageReference Include="coverlet.msbuild" Version="3.2.0">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Moq" Version="4.18.2" />
-        <PackageReference Include="Verify.Xunit" Version="18.3.0" />
+        <PackageReference Include="Verify.Xunit" Version="19.1.0" />
         <PackageReference Include="xunit" Version="2.4.2" />
         <PackageReference Include="xunit.analyzers" Version="1.0.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
