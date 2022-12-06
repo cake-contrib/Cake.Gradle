@@ -1,7 +1,4 @@
-#l nuget:?package=Cake.Recipe&version=2.2.1
-
-// Workaround for https://github.com/cake-contrib/Cake.Recipe/issues/854
-#tool nuget:?package=NuGet.CommandLine&version=5.8.1
+#l nuget:?package=Cake.Recipe&version=3.0.1
 
 Environment.SetVariableNames();
 
@@ -21,11 +18,6 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(
     context: Context,
-    dupFinderExcludePattern: new string[] {
-        MakeAbsolute(BuildParameters.SolutionDirectoryPath.CombineWithFilePath("LitJson/*.cs")).FullPath,
-        MakeAbsolute(BuildParameters.SolutionDirectoryPath.CombineWithFilePath("**/*.AssemblyInfo.cs")).FullPath,
-        MakeAbsolute(BuildParameters.SourceDirectoryPath.CombineWithFilePath("Cake.Gradle.Tests/**/*.cs")).FullPath
-    },
     testCoverageFilter: $"+[{BuildParameters.Title}*]* -[*.Tests]* -[{BuildParameters.Title}]LitJson.* -[{BuildParameters.Title}]Cake.Gradle.Abstractions.*");
 
 Build.RunDotNetCore();
