@@ -1,4 +1,4 @@
-#l nuget:?package=Cake.Recipe&version=3.0.1
+#l nuget:?package=Cake.Recipe&version=3.1.1
 
 Environment.SetVariableNames();
 
