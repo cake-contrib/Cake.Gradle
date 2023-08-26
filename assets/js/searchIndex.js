@@ -39,48 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"GradleRunner",
-            content:"GradleRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
-            title:"GradleRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
-            title:"GradleBootstrapper",
-            content:"GradleBootstrapper",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleBootstrapper',
-            title:"GradleBootstrapper",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"GradleVersionIdentifier",
             content:"GradleVersionIdentifier",
             description:'',
@@ -94,7 +52,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:4,
+            id:1,
             title:"GradleRunnerAlias",
             content:"GradleRunnerAlias",
             description:'',
@@ -108,7 +66,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:5,
+            id:2,
             title:"IWebAdapter",
             content:"IWebAdapter",
             description:'',
@@ -122,21 +80,49 @@ var searchModule = function() {
     );
     a(
         {
-            id:6,
-            title:"GradleBootstrapAlias",
-            content:"GradleBootstrapAlias",
+            id:3,
+            title:"GradleBootstrapper",
+            content:"GradleBootstrapper",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
-            title:"GradleBootstrapAlias",
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleBootstrapper',
+            title:"GradleBootstrapper",
             description:""
         }
     );
     a(
         {
-            id:7,
+            id:4,
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"GradleRunner",
+            content:"GradleRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
+            title:"GradleRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
             title:"GradleLogLevel",
             content:"GradleLogLevel",
             description:'',
@@ -150,7 +136,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:8,
+            id:7,
             title:"IZipAdapter",
             content:"IZipAdapter",
             description:'',
@@ -164,7 +150,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:9,
+            id:8,
             title:"GradleDownloadInformation",
             content:"GradleDownloadInformation",
             description:'',
@@ -173,6 +159,20 @@ var searchModule = function() {
         {
             url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleDownloadInformation',
             title:"GradleDownloadInformation",
+            description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"GradleBootstrapAlias",
+            content:"GradleBootstrapAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
+            title:"GradleBootstrapAlias",
             description:""
         }
     );
