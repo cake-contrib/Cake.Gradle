@@ -39,14 +39,14 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"GradleBootstrapAlias",
-            content:"GradleBootstrapAlias",
+            title:"GradleRunner",
+            content:"GradleRunner",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
-            title:"GradleBootstrapAlias",
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
+            title:"GradleRunner",
             description:""
         }
     );
@@ -67,76 +67,6 @@ var searchModule = function() {
     a(
         {
             id:2,
-            title:"GradleDownloadInformation",
-            content:"GradleDownloadInformation",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleDownloadInformation',
-            title:"GradleDownloadInformation",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
-            title:"GradleLogLevel",
-            content:"GradleLogLevel",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
-            title:"GradleLogLevel",
-            description:""
-        }
-    );
-    a(
-        {
-            id:4,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"IZipAdapter",
-            content:"IZipAdapter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
-            title:"IZipAdapter",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"GradleRunnerAlias",
-            content:"GradleRunnerAlias",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
-            title:"GradleRunnerAlias",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
             title:"IWebAdapter",
             content:"IWebAdapter",
             description:'',
@@ -150,15 +80,85 @@ var searchModule = function() {
     );
     a(
         {
-            id:8,
-            title:"GradleRunner",
-            content:"GradleRunner",
+            id:3,
+            title:"GradleRunnerAlias",
+            content:"GradleRunnerAlias",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
-            title:"GradleRunner",
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
+            title:"GradleRunnerAlias",
+            description:""
+        }
+    );
+    a(
+        {
+            id:4,
+            title:"GradleDownloadInformation",
+            content:"GradleDownloadInformation",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleDownloadInformation',
+            title:"GradleDownloadInformation",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"GradleBootstrapAlias",
+            content:"GradleBootstrapAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleBootstrapAlias',
+            title:"GradleBootstrapAlias",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"IZipAdapter",
+            content:"IZipAdapter",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
+            title:"IZipAdapter",
+            description:""
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"GradleLogLevel",
+            content:"GradleLogLevel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
+            title:"GradleLogLevel",
             description:""
         }
     );
