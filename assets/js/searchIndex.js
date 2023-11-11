@@ -39,14 +39,14 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"IWebAdapter",
-            content:"IWebAdapter",
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IWebAdapter',
-            title:"IWebAdapter",
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
             description:""
         }
     );
@@ -67,20 +67,6 @@ var searchModule = function() {
     a(
         {
             id:2,
-            title:"GradleVersionIdentifier",
-            content:"GradleVersionIdentifier",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleVersionIdentifier',
-            title:"GradleVersionIdentifier",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"GradleRunner",
             content:"GradleRunner",
             description:'',
@@ -89,6 +75,20 @@ var searchModule = function() {
         {
             url:'/Cake.Gradle/api/Cake.Gradle/GradleRunner',
             title:"GradleRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"GradleVersionIdentifier",
+            content:"GradleVersionIdentifier",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleVersionIdentifier',
+            title:"GradleVersionIdentifier",
             description:""
         }
     );
@@ -109,6 +109,20 @@ var searchModule = function() {
     a(
         {
             id:5,
+            title:"GradleLogLevel",
+            content:"GradleLogLevel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
+            title:"GradleLogLevel",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
             title:"GradleBootstrapAlias",
             content:"GradleBootstrapAlias",
             description:'',
@@ -122,29 +136,15 @@ var searchModule = function() {
     );
     a(
         {
-            id:6,
-            title:"IZipAdapter",
-            content:"IZipAdapter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
-            title:"IZipAdapter",
-            description:""
-        }
-    );
-    a(
-        {
             id:7,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
+            title:"IWebAdapter",
+            content:"IWebAdapter",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IWebAdapter',
+            title:"IWebAdapter",
             description:""
         }
     );
@@ -165,14 +165,14 @@ var searchModule = function() {
     a(
         {
             id:9,
-            title:"GradleLogLevel",
-            content:"GradleLogLevel",
+            title:"IZipAdapter",
+            content:"IZipAdapter",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleLogLevel',
-            title:"GradleLogLevel",
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
+            title:"IZipAdapter",
             description:""
         }
     );
