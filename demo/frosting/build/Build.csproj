@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Frosting" Version="3.0.0" />
+    <PackageReference Include="Cake.Frosting" Version="4.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cake.Gradle, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\..\src\Cake.Gradle\bin\Release\net6.0\Cake.Gradle.dll</HintPath>
+    <Reference Include="Cake.Gradle">
+      <HintPath>$(ProjectDir)../../../src/Cake.Gradle/bin/Release/net8.0/Cake.Gradle.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
