@@ -13,8 +13,6 @@ using Xunit;
 
 namespace Cake.Gradle.Tests
 {
-
-    [UsesVerify]
     public class GradleBootstrapperTest
     {
         private readonly GradleBootstrapperFixture _fixture;
@@ -162,6 +160,5 @@ namespace Cake.Gradle.Tests
                     It.IsAny<Action<int>>()),
                 Times.Never);
         }
-
     }
 }
