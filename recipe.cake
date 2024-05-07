@@ -8,7 +8,7 @@ BuildParameters.SetParameters(
     sourceDirectoryPath: "./src",
     title: "Cake.Gradle",
     repositoryOwner: "cake-contrib",
-    shouldRunCodecov: true,
+    shouldRunCodecov: false,
     shouldRunDotNetCorePack: true,
     shouldUseDeterministicBuilds: true,
     preferredBuildProviderType: BuildProviderType.GitHubActions,
