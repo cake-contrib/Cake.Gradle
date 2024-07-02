@@ -27,7 +27,7 @@
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Moq" Version="4.20.70" />
-        <PackageReference Include="Verify.Xunit" Version="25.0.4" />
+        <PackageReference Include="Verify.Xunit" Version="25.1.1" />
         <PackageReference Include="xunit" Version="2.8.1" />
         <PackageReference Include="xunit.analyzers" Version="1.14.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
