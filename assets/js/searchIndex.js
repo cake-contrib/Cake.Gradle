@@ -39,48 +39,34 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"IZipAdapter",
-            content:"IZipAdapter",
+            title:"GradleRunnerSettings",
+            content:"GradleRunnerSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
-            title:"IZipAdapter",
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
+            title:"GradleRunnerSettings",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"GradleRunnerAlias",
-            content:"GradleRunnerAlias",
+            title:"GradleDownloadInformation",
+            content:"GradleDownloadInformation",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
-            title:"GradleRunnerAlias",
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleDownloadInformation',
+            title:"GradleDownloadInformation",
             description:""
         }
     );
     a(
         {
             id:2,
-            title:"GradleVersionIdentifier",
-            content:"GradleVersionIdentifier",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleVersionIdentifier',
-            title:"GradleVersionIdentifier",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"GradleBootstrapAlias",
             content:"GradleBootstrapAlias",
             description:'',
@@ -94,7 +80,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:4,
+            id:3,
             title:"GradleBootstrapper",
             content:"GradleBootstrapper",
             description:'',
@@ -103,6 +89,20 @@ var searchModule = function() {
         {
             url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleBootstrapper',
             title:"GradleBootstrapper",
+            description:""
+        }
+    );
+    a(
+        {
+            id:4,
+            title:"GradleRunnerAlias",
+            content:"GradleRunnerAlias",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerAlias',
+            title:"GradleRunnerAlias",
             description:""
         }
     );
@@ -137,28 +137,28 @@ var searchModule = function() {
     a(
         {
             id:7,
-            title:"GradleDownloadInformation",
-            content:"GradleDownloadInformation",
+            title:"GradleVersionIdentifier",
+            content:"GradleVersionIdentifier",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleDownloadInformation',
-            title:"GradleDownloadInformation",
+            url:'/Cake.Gradle/api/Cake.Gradle.Bootstrap/GradleVersionIdentifier',
+            title:"GradleVersionIdentifier",
             description:""
         }
     );
     a(
         {
             id:8,
-            title:"GradleRunnerSettings",
-            content:"GradleRunnerSettings",
+            title:"IZipAdapter",
+            content:"IZipAdapter",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Gradle/api/Cake.Gradle/GradleRunnerSettings',
-            title:"GradleRunnerSettings",
+            url:'/Cake.Gradle/api/Cake.Gradle.Abstractions/IZipAdapter',
+            title:"IZipAdapter",
             description:""
         }
     );
