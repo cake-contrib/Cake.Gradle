@@ -20,5 +20,8 @@ ToolSettings.SetToolSettings(
     context: Context,
     testCoverageFilter: $"+[{BuildParameters.Title}*]* -[*.Tests]* -[{BuildParameters.Title}]LitJson.* -[{BuildParameters.Title}]Cake.Gradle.Abstractions.*");
 
+ToolSettings.SetToolPreprocessorDirectives(
+    gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.18.0");
+
 Build.RunDotNetCore();
 
