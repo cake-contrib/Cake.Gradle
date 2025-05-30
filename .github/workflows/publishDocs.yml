@@ -15,19 +15,19 @@ jobs:
 
     steps:
     - name: checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
     - name: Fetch all tags and branches
       run: git fetch --prune --unshallow
 
     - name: Cache Tools
-      uses: actions/cache@v3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
       with:
         path: tools
         key: ${{ runner.os }}-doc-tools-${{ hashFiles('recipe.cake') }}
 
     - name: Publishing documentaiton
-      uses: cake-build/cake-action@v1
+      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9 # v3
       with:
         script-path: recipe.cake
         target: Force-Publish-Documentation

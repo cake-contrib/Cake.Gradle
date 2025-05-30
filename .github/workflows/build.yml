@@ -19,7 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ windows-2022, ubuntu-22.04, macos-12 ]
+        os: [ windows-2022, ubuntu-22.04, macos-13 ]
 
     env:
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
@@ -44,11 +44,18 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
-      - uses: actions/setup-dotnet@v3.2.0
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
         with:
+          # codecov needs 2.1
+          # unittests needs 3.1
+          # gitversion needs 5.0
+          # cake 1.3 needs 6.0
+          # gitrelasemanager (v0.18.0) needs 7.0
+          # .NET 9 to build
+          # test are running on 8 and 9
           dotnet-version: |
             2.1
             3.1
@@ -56,13 +63,14 @@ jobs:
             6.0
             7.0
             8.0
+            9.0
       - name: Cache Tools
-        uses: actions/cache@v3
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
         with:
           path: tools
           key: ${{ runner.os }}-tools-${{ hashFiles('recipe.cake') }}
       - name: Build project
-        uses: cake-build/cake-action@v1
+        uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9 # v3
         with:
           script-path: recipe.cake
           target: CI
@@ -70,7 +78,7 @@ jobs:
           cake-version: 1.3.0
       # currently, Cake.Recipe does not upload artifacts when run on gh-actions
       - name: Upload Issues
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           if-no-files-found: warn
           name: ${{ matrix.os }} Issues
@@ -78,7 +86,7 @@ jobs:
             BuildArtifacts/report.html
             BuildArtifacts/**/coverlet/*.xml
       - name: Upload Packages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: runner.os == 'Windows'
         with:
           if-no-files-found: warn
